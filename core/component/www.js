@@ -19,20 +19,20 @@ class Web {
     }
 
     #initializeSetting() {
-        this.app.set('views', path.join($_FORWARD.configuration.default.rootPath));
+        this.app.set('views', path.join($_FORWARD.rootPath));
         this.app.set('view engine', 'ejs');
         this.app.use(morgan('dev', {stream: logger.stream}));
         this.app.use(express.json());
         this.app.use(express.urlencoded({extended: false}));
         this.app.use(cookieParser());
-        this.app.use("/static", express.static(path.join($_FORWARD.configuration.default.rootPath, "static")));
+        this.app.use("/static", express.static(path.join($_FORWARD.rootPath, "static")));
         this.app.use(favicon(path.join("static", "favicon.ico")));
     }
 
     #registerModules() {
         global.$_FORWARD.modules = [];
         const instance = this;
-        const rootPath = $_FORWARD.configuration.default.rootPath;
+        const rootPath = $_FORWARD.rootPath;
         const modulesPath = path.join(rootPath, "modules");
         const modules = fs.readdirSync(modulesPath, {withFileTypes: true}).filter(dirent => dirent.isDirectory()).map(dir => dir.name);
 
@@ -68,7 +68,7 @@ class Web {
         res.locals.message = err.message;
         res.locals.error = err;
         res.status(err.status || 500);
-        res.render(path.join($_FORWARD.configuration.default.rootPath, "core", "views", "common", "error"));
+        res.render(path.join($_FORWARD.rootPath, "core", "views", "common", "error"));
       });
     }
 

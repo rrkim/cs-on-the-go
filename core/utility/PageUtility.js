@@ -6,7 +6,7 @@ function renderPage(res, viewPage, params) {
 }
 
 function getViewPath(viewPath) {
-    return path.join($_FORWARD.configuration.default.rootPath, viewPath);
+    return path.join($_FORWARD.rootPath, viewPath);
 }
 
 module.exports = { renderPage, getViewPath };

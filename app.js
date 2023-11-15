@@ -1,4 +1,5 @@
 global.$_FORWARD = {};
+global.$_FORWARD.rootPath = __dirname;
 global.$_FORWARD.configuration = {};
 const path = require('path');
 const fs = require('fs');
