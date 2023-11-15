@@ -20,29 +20,12 @@
 		pauseOnHover : true,
 		vertical : false,
 		dotsClass : "slick-dots",
-		draggable : true,
-		responsive: [
-			{
-				breakpoint: 960,
-				settings: {
-
-					slidesToShow:3
-				}
-			},
-			{
-				breakpoint: 768,
-				settings: {
-
-					slidesToShow:2
-				}
-			}
-		]
+		draggable : true
 	});
 
-	const percentPerUnit = 31;
-	$(".university-progress .progress-bar").each(function(i, iv) {
+	$(".university-progress .progress-bar .runner").each(function(i, iv) {
 		let percent = $(iv).data("completePercent");
-		$(iv).find(".runner").css("transform", `translateX(calc(${percent} * ${percentPerUnit}%))`);
+		$(iv)[0].style.setProperty("--cs-on-the-go-runner-percent", percent);
 	});
 
 })(window.jQuery);

@@ -1,33 +1,20 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var favicon = require('serve-favicon');
-var indexRouter = require('./routes/index');
+global.$_FORWARD = {};
+global.$_FORWARD.configuration = {};
+const path = require('path');
+const fs = require('fs');
+const Logger = require('./core/component/logger');
+const logger = new Logger().getLogger();
+const Web = require('./core/component/www');
 
-var app = express();
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use("/static", express.static(path.join(__dirname, 'static')));
-app.use(favicon(path.join(__dirname,'static','favicon.ico')));
-
-app.use('/', indexRouter);
-
-app.use(function(req, res, next) {
-  next(createError(404));
+const confPath = "./core/conf";
+const confFiles = fs.readdirSync(confPath).filter(d => d.endsWith(".json"));
+confFiles.forEach(function(kv, k) {
+  const fileName = kv.split(".")[0];
+  const confFile = fs.readFileSync(path.join(confPath, kv), 'utf8');
+  global.$_FORWARD.configuration[fileName] = JSON.parse(confFile);
+  logger.debug(`${fileName} 설정 정보 를 정상적으로 등록하였습니다.`);
 });
 
-app.use(function(err, req, res, next) {
-  res.locals.message = err.message;
-  res.locals.error = err;
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-module.exports = app;
+const port = $_FORWARD.configuration.default.port;
+const web = new Web(port);
+web.listen();
