@@ -89,6 +89,8 @@ class ForwardGrid {
     }
 
     selectRow(rowNum) {
+        if(this.tableElement.querySelectorAll(`.${this.#FORWARD_DATA_ROW}`).length <= rowNum) { return; }
+
         this.unSelectRow();
         this.tableElement.querySelectorAll(`.${this.#FORWARD_DATA_ROW}`)[rowNum].classList.add(this.#FORWARD_SELECTED_DATA);
         if(this.clickEvent != null) { this.clickEvent({rowNum: rowNum, data: this.getSelectedRowData()}); }

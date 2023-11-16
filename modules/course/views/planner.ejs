@@ -22,8 +22,8 @@
     <div class="course-search-area">
         <div>
             <h5 class="d-inline">교과목 검색</h5>
-            <input type="text" class="input-text01" name="course-name"/>
-            <input type="button" class="btn01" value="검색" />
+            <input type="text" class="input-text01" name="course-name" placeholder="교과목명"/>
+            <input type="button" class="btn01" value="검색" onclick="getCourseDataAction()"/>
         </div>
         <input type="button" class="btn01" value="추가" />
     </div>
@@ -167,65 +167,70 @@
             ]
         });
 
-        function getCourseDataMain() {
-            return fetch("/course/get-course-data").then((res) => res.json()).then(data => {
-                grid1.resetData(data);
-            }).catch((err) => {
-                alert("강의 정보를 불러오는 중에 오류가 발생했습니다.");
-                throw err;
+        getCourseDataAction();
+    });
+
+    function getCourseDataMain(params) {
+        let queryString = new URLSearchParams(params).toString();
+        return fetch(`/course/get-course-data?${queryString}`).then((res) => res.json()).then(data => {
+            grid1.resetData(data);
+        }).catch((err) => {
+            alert("강의 정보를 불러오는 중에 오류가 발생했습니다.");
+            throw err;
+        });
+    }
+
+    function getCourseDataAction() {
+        let courseName = document.getElementsByName("course-name")[0].value;
+        getCourseDataMain({course_name: courseName});
+    }
+
+    function getClassDataMain(params) {
+        let queryString = new URLSearchParams(params).toString();
+        return fetch(`/course/get-class-data?${queryString}`).then((res) => res.json()).then(data => {
+            data.forEach((iv) => {
+                iv.class_time_text = convertClassTimeListToString(iv.class_time_list);
             });
-        }
+            grid2.resetData(data);
 
-        function getClassDataMain(params) {
-            let queryString = new URLSearchParams(params).toString();
-            return fetch(`/course/get-class-data?${queryString}`).then((res) => res.json()).then(data => {
-                data.forEach((iv) => {
-                    iv.class_time_text = convertClassTimeListToString(iv.class_time_list);
-                });
-                grid2.resetData(data);
+        }).catch((err) => {
+            alert("분반 정보를 불러오는 중에 오류가 발생했습니다.");
+            throw err;
+        });
+    }
 
-            }).catch((err) => {
-                alert("분반 정보를 불러오는 중에 오류가 발생했습니다.");
-                throw err;
-            });
-        }
+    function getClassDataAction() {
+        let courseId = grid1.getSelectedRowData().course_id;
+        getClassDataMain({course_id: courseId});
+    }
 
-        function getClassDataAction() {
-            let course_id = grid1.getSelectedRowData().course_id;
-            getClassDataMain({course_id: course_id});
-        }
+    function convertClassTimeListToString(arr) {
+        const days = {};
 
-        getCourseDataMain();
+        arr.forEach(item => {
+            const day = item.slice(0, 1);
 
+            const number = item.slice(1);
 
-        function convertClassTimeListToString(arr) {
-            const days = {};
+            if (days[day]) {
+                days[day].push(number);
+            } else {
+                days[day] = [number];
+            }
+        });
 
-            arr.forEach(item => {
-                const day = item.slice(0, 1);
+        let result = "";
 
-                const number = item.slice(1);
-
-                if (days[day]) {
-                    days[day].push(number);
-                } else {
-                    days[day] = [number];
-                }
-            });
-
-            let result = "";
-
-            for (const day in days) {
-                if (result !== "") {
-                    result += "/";
-                }
-
-                result += `${day}${days[day].join(',')}`;
+        for (const day in days) {
+            if (result !== "") {
+                result += "/";
             }
 
-            return result;
+            result += `${day}${days[day].join(',')}`;
         }
-    });
+
+        return result;
+    }
 </script>
 </body>
 </html>

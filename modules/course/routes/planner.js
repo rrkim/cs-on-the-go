@@ -9,7 +9,12 @@ router.get('/planner', function (req, res, next) {
 });
 
 router.get('/get-course-data', function (req, res, next) {
-    let courseData = course.map(d => {
+    let course_name = req.query.course_name;
+    let course_list = course;
+    console.log('course_list', course_list);
+    if(course_name != null && course_name !== "") { course_list = course.filter(d => d.course_name.indexOf(course_name) !== -1); }
+    console.log('course_list', course_list);
+    let courseData = course_list.map(d => {
         return {course_id: d.course_id, course_name: d.course_name, point: d.point}
     });
     res.json(courseData);
@@ -17,10 +22,7 @@ router.get('/get-course-data', function (req, res, next) {
 
 router.get('/get-class-data', function (req, res, next) {
     let course_id = req.query.course_id;
-    console.log(course_id);
-
     let courseData = course.filter(d => d.course_id === parseInt(course_id));
-    console.log(courseData);
     res.json(courseData);
 });
 
