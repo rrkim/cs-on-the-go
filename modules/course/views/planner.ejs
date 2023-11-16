@@ -22,56 +22,14 @@
     <div class="course-search-area">
         <div>
             <h5 class="d-inline">교과목 검색</h5>
-            <input type="text" class="input-text01" name="course-name"/>
-            <input type="button" class="btn01" value="검색" />
+            <input type="text" class="input-text01" name="course-name" placeholder="교과목명"/>
+            <input type="button" class="btn01" value="검색" onclick="getCourseDataAction()"/>
         </div>
         <input type="button" class="btn01" value="추가" />
     </div>
     <div class="course-select-area">
-        <div class="data-area">
-            <table class="table03">
-                <tr>
-                    <th>교과목코드</th>
-                    <th>교과목명</th>
-                </tr>
-                <tr class="active">
-                    <td class="text-center">11009435</td>
-                    <td class="text-center">웹프로그래밍</td>
-                </tr>
-                <tr>
-                    <td class="text-center">11009436</td>
-                    <td class="text-center">웹프로그래밍실습</td>
-                </tr>
-            </table>
-        </div>
-        <div class="data-area">
-            <table class="table03">
-                <tr>
-                    <th>분반</th>
-                    <th>교수명</th>
-                    <th>캠퍼스 구분</th>
-                    <th>강의시간</th>
-                </tr>
-                <tr>
-                    <td class="text-center">001</td>
-                    <td class="text-center">서현</td>
-                    <td class="text-center">가좌</td>
-                    <td class="text-center">월3,4[30-304]</td>
-                </tr>
-                <tr class="active">
-                    <td class="text-center">002</td>
-                    <td class="text-center">서현</td>
-                    <td class="text-center">가좌</td>
-                    <td class="text-center">월6,7[30-304]</td>
-                </tr>
-                <tr>
-                    <td class="text-center">003</td>
-                    <td class="text-center">서현</td>
-                    <td class="text-center">가좌</td>
-                    <td class="text-center">월8,9[30-304]</td>
-                </tr>
-            </table>
-        </div>
+        <div class="data-area" id="grid01"></div>
+        <div class="data-area" id="grid02"></div>
     </div>
 
     <div class="course-timetable-area">
@@ -166,5 +124,113 @@
     </div>
 </div>
 <%- include(getViewPath("/core/views/common/footer.ejs")) %>
+<script>
+    let grid1 = new ForwardGrid();
+    let grid2 = new ForwardGrid();
+    $(function() {
+        grid1.createElement({
+            element: $("#grid01")[0],
+            columns: [
+                {
+                    "columnNm": "교과목코드",
+                    "columnId": "course_id"
+                },
+                {
+                    "columnNm": "교과목명",
+                    "columnId": "course_name"
+                }
+            ],
+            clickEvent: (event) => {
+                getClassDataAction();
+            }
+        });
+
+        grid2.createElement({
+            element: $("#grid02")[0],
+            columns: [
+                {
+                    "columnNm": "분반",
+                    "columnId": "class_id"
+                },
+                {
+                    "columnNm": "교수명",
+                    "columnId": "professor_name"
+                },
+                {
+                    "columnNm": "캠퍼스 구분",
+                    "columnId": "campus_type"
+                },
+                {
+                    "columnNm": "강의시간",
+                    "columnId": "class_time_text"
+                }
+            ]
+        });
+
+        getCourseDataAction();
+    });
+
+    function getCourseDataMain(params) {
+        let queryString = new URLSearchParams(params).toString();
+        return fetch(`/course/get-course-data?${queryString}`).then((res) => res.json()).then(data => {
+            grid1.resetData(data);
+        }).catch((err) => {
+            alert("강의 정보를 불러오는 중에 오류가 발생했습니다.");
+            throw err;
+        });
+    }
+
+    function getCourseDataAction() {
+        let courseName = document.getElementsByName("course-name")[0].value;
+        getCourseDataMain({course_name: courseName});
+    }
+
+    function getClassDataMain(params) {
+        let queryString = new URLSearchParams(params).toString();
+        return fetch(`/course/get-class-data?${queryString}`).then((res) => res.json()).then(data => {
+            data.forEach((iv) => {
+                iv.class_time_text = convertClassTimeListToString(iv.class_time_list);
+            });
+            grid2.resetData(data);
+
+        }).catch((err) => {
+            alert("분반 정보를 불러오는 중에 오류가 발생했습니다.");
+            throw err;
+        });
+    }
+
+    function getClassDataAction() {
+        let courseId = grid1.getSelectedRowData().course_id;
+        getClassDataMain({course_id: courseId});
+    }
+
+    function convertClassTimeListToString(arr) {
+        const days = {};
+
+        arr.forEach(item => {
+            const day = item.slice(0, 1);
+
+            const number = item.slice(1);
+
+            if (days[day]) {
+                days[day].push(number);
+            } else {
+                days[day] = [number];
+            }
+        });
+
+        let result = "";
+
+        for (const day in days) {
+            if (result !== "") {
+                result += "/";
+            }
+
+            result += `${day}${days[day].join(',')}`;
+        }
+
+        return result;
+    }
+</script>
 </body>
 </html>

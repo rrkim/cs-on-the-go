@@ -6,10 +6,10 @@
     "course_type": "전필",
     "course_id": 11009457,
     "course_point": 2,
-    "class_number": 1,
-    "professor": "이수원",
+    "class_id": 1,
+    "professor_name": "이수원",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["목6", "목7"],
+    "class_time_list": ["목6", "목7"],
     "class_room": "030-0308"
   },
   {
@@ -19,10 +19,10 @@
     "course_type": "전필",
     "course_id": 11009458,
     "course_point": 1,
-    "class_number": 1,
-    "professor": "이수원",
+    "class_id": 1,
+    "professor_name": "이수원",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["목6", "목7"],
+    "class_time_list": ["목6", "목7"],
     "class_room": "030-0308"
   },
   {
@@ -32,10 +32,10 @@
     "course_type": "전필",
     "course_id": 11009458,
     "course_point": 1,
-    "class_number": 2,
-    "professor": "이수원",
+    "class_id": 2,
+    "professor_name": "이수원",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["목8", "목9"],
+    "class_time_list": ["목8", "목9"],
     "class_room": "030-0308"
   },
   {
@@ -45,10 +45,10 @@
     "course_type": "전필",
     "course_id": 11009533,
     "course_point": 3,
-    "class_number": 1,
-    "professor": "최상민",
+    "class_id": 1,
+    "professor_name": "최상민",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["화1", "화2", "목3"],
+    "class_time_list": ["화1", "화2", "목3"],
     "class_room": "030-0304"
   },
   {
@@ -58,10 +58,10 @@
     "course_type": "전선",
     "course_id": 11009435,
     "course_point": 2,
-    "class_number": 1,
-    "professor": "서현",
+    "class_id": 1,
+    "professor_name": "서현",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["월6", "월7"],
+    "class_time_list": ["월6", "월7"],
     "class_room": "030-0304"
   },
   {
@@ -71,10 +71,10 @@
     "course_type": "전선",
     "course_id": 11009436,
     "course_point": 1,
-    "class_number": 1,
-    "professor": "서현",
+    "class_id": 1,
+    "professor_name": "서현",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["화6", "화7"],
+    "class_time_list": ["화6", "화7"],
     "class_room": "030-0308"
   },
   {
@@ -84,10 +84,10 @@
     "course_type": "전선",
     "course_id": 11009436,
     "course_point": 1,
-    "class_number": 2,
-    "professor": "서현",
+    "class_id": 2,
+    "professor_name": "서현",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["화8", "화9"],
+    "class_time_list": ["화8", "화9"],
     "class_room": "030-0308"
   },
   {
@@ -97,10 +97,10 @@
     "course_type": "전선",
     "course_id": 11009504,
     "course_point": 3,
-    "class_number": 1,
-    "professor": "김민기",
+    "class_id": 1,
+    "professor_name": "김민기",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["월1", "월2", "수3"],
+    "class_time_list": ["월1", "월2", "수3"],
     "class_room": "030-0304"
   },
   {
@@ -110,10 +110,10 @@
     "course_type": "전선",
     "course_id": 11009509,
     "course_point": 2,
-    "class_number": 1,
-    "professor": "김지윤",
+    "class_id": 1,
+    "professor_name": "김지윤",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["수1", "수2"],
+    "class_time_list": ["수1", "수2"],
     "class_room": "030-0304"
   },
   {
@@ -123,10 +123,10 @@
     "course_type": "전선",
     "course_id": 11009525,
     "course_point": 1,
-    "class_number": 1,
-    "professor": "김지윤",
+    "class_id": 1,
+    "professor_name": "김지윤",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["금3", "금4"],
+    "class_time_list": ["금3", "금4"],
     "class_room": "030-0308"
   },
   {
@@ -136,10 +136,10 @@
     "course_type": "전선",
     "course_id": 11009525,
     "course_point": 1,
-    "class_number": 2,
-    "professor": "김지윤",
+    "class_id": 2,
+    "professor_name": "김지윤",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["금6", "금7"],
+    "class_time_list": ["금6", "금7"],
     "class_room": "030-0308"
   },
   {
@@ -149,10 +149,10 @@
     "course_type": "전선",
     "course_id": 11009574,
     "course_point": 3,
-    "class_number": 1,
-    "professor": "미정",
+    "class_id": 1,
+    "professor_name": "미정",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["월5", "수6", "수7"],
+    "class_time_list": ["월5", "수6", "수7"],
     "class_room": "030-0304"
   },
   {
@@ -162,10 +162,10 @@
     "course_type": "전선",
     "course_id": 11009447,
     "course_point": 3,
-    "class_number": 1,
-    "professor": "미정",
+    "class_id": 1,
+    "professor_name": "미정",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["수5", "금6", "금7"],
+    "class_time_list": ["수5", "금6", "금7"],
     "class_room": "030-0304"
   },
   {
@@ -175,10 +175,10 @@
     "course_type": "전선",
     "course_id": 11009471,
     "course_point": 3,
-    "class_number": 1,
-    "professor": "서현",
+    "class_id": 1,
+    "professor_name": "서현",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["월3", "목1", "목2"],
+    "class_time_list": ["월3", "목1", "목2"],
     "class_room": "030-0304"
   },
   {
@@ -188,10 +188,10 @@
     "course_type": "전선",
     "course_id": 11009473,
     "course_point": 3,
-    "class_number": 1,
-    "professor": "김민기",
+    "class_id": 1,
+    "professor_name": "김민기",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["화1", "화2", "목3"],
+    "class_time_list": ["화1", "화2", "목3"],
     "class_room": "030-0308"
   },
   {
@@ -201,10 +201,10 @@
     "course_type": "전선",
     "course_id": 11009549,
     "course_point": 3,
-    "class_number": 1,
-    "professor": "남영호",
+    "class_id": 1,
+    "professor_name": "남영호",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["화3", "금1", "금2"],
+    "class_time_list": ["화3", "금1", "금2"],
     "class_room": "030-0304"
   },
   {
@@ -214,10 +214,10 @@
     "course_type": "전선",
     "course_id": 11009569,
     "course_point": 3,
-    "class_number": 1,
-    "professor": "최상민",
+    "class_id": 1,
+    "professor_name": "최상민",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["화", "목6", "목7"],
+    "class_time_list": ["화", "목6", "목7"],
     "class_room": "030-0304"
   },
   {
@@ -227,10 +227,10 @@
     "course_type": "전선",
     "course_id": 11023404,
     "course_point": 3,
-    "class_number": 1,
-    "professor": "김지윤",
+    "class_id": 1,
+    "professor_name": "김지윤",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["월8", "월9", "목8"],
+    "class_time_list": ["월8", "월9", "목8"],
     "class_room": "030-0304"
   },
   {
@@ -240,10 +240,10 @@
     "course_type": "전선",
     "course_id": 11009454,
     "course_point": 2,
-    "class_number": 1,
-    "professor": "권순정",
+    "class_id": 1,
+    "professor_name": "권순정",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["화6", "화7"],
+    "class_time_list": ["화6", "화7"],
     "class_room": "030-0404"
   },
   {
@@ -253,10 +253,10 @@
     "course_type": "전선",
     "course_id": 11009472,
     "course_point": 3,
-    "class_number": 1,
-    "professor": "남영호",
+    "class_id": 1,
+    "professor_name": "남영호",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["수1", "수2", "수3"],
+    "class_time_list": ["수1", "수2", "수3"],
     "class_room": "030-0308"
   },
   {
@@ -266,10 +266,10 @@
     "course_type": "전선",
     "course_id": 11009476,
     "course_point": 3,
-    "class_number": 1,
-    "professor": "김지윤",
+    "class_id": 1,
+    "professor_name": "김지윤",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["수5", "수6", "수7"],
+    "class_time_list": ["수5", "수6", "수7"],
     "class_room": "030-0404"
   },
   {
@@ -279,10 +279,10 @@
     "course_type": "전선",
     "course_id": 11009477,
     "course_point": 3,
-    "class_number": 1,
-    "professor": "이수원",
+    "class_id": 1,
+    "professor_name": "이수원",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["화1", "화2", "화3"],
+    "class_time_list": ["화1", "화2", "화3"],
     "class_room": "030-0404"
   },
   {
@@ -292,10 +292,10 @@
     "course_type": "전선",
     "course_id": 11009576,
     "course_point": 3,
-    "class_number": 1,
-    "professor": "미정",
+    "class_id": 1,
+    "professor_name": "미정",
     "campus_type": "가좌캠퍼스",
-    "class_time": ["월6", "월7", "목5"],
+    "class_time_list": ["월6", "월7", "목5"],
     "class_room": "030-0404"
   }
 ]
