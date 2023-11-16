@@ -333,6 +333,54 @@ footer .page-logo .logo-img {
     justify-content: space-between;
 }
 
+.course-plan-info-area {
+    display: flex;
+    justify-content: space-between;
+}
+
+.course-search-area  {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5rem;
+}
+
+.course-select-area  {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.course-select-area table {
+    border: 0;
+}
+
+.course-select-area .data-area {
+    width: 100%;
+    border: 1px solid #D9D9D9;
+    height: 15rem;
+    overflow-y: scroll;
+}
+
+.course-select-area .data-area:nth-child(1)  {
+    margin-right: 1rem;
+}
+
+.course-select-area .data-area:nth-child(2)  {
+    margin-left: 1rem;
+}
+
+.course-timetable tr:nth-child(1) th:nth-child(1) {
+    width: 5%;
+}
+
+.course-timetable tr:nth-child(n+1) th:nth-child(n+2) {
+    width: 20%;
+}
+
+.course-timetable td {
+    padding: 1.5rem;
+}
+
 @media (max-width: 1400px) {
     .university-progress .progress-bar .runner {
         --cs-on-the-go-runner-unit: 0.5rem;
