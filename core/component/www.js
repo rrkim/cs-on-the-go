@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const favicon = require('serve-favicon');
 const fs = require('fs');
 const Logger = require('./logger');
+const StringUtility = require("../utility/StringUtility");
 const logger = new Logger().getLogger();
 
 class Web {
@@ -42,10 +43,10 @@ class Web {
             const routesPath = path.join(modulesPath, iv, "routes");
             const module = {};
             module.moduleName = moduleInfo.moduleName;
-            module.routesPath = moduleInfo.contextPath;
+            module.contextPath = moduleInfo.contextPath;
             module.routes = [];
             $_FORWARD.modules.push(module);
-            logger.debug(`${moduleInfo.moduleName} 모듈을 등록하였습니다.`);
+            logger.debug(`${StringUtility.toCapitalize(moduleInfo.moduleName)} 모듈을 등록하였습니다.`);
 
             const routerFiles = fs.readdirSync(routesPath).filter(d => d.endsWith(".js"));
             routerFiles.forEach(function (kv, k) {
@@ -53,8 +54,8 @@ class Web {
                 const routerEntry = require(path.join(routesPath, routerFileName));
                 module.routes.push({routerName: routerFileName, router: routerEntry});
 
-                instance.app.use(routerEntry);
-                logger.debug(`${routerFileName} 라우터를 등록하였습니다.`);
+                instance.app.use(moduleInfo.contextPath, routerEntry);
+                logger.debug(`${StringUtility.toCapitalize(routerFileName)} 라우터를 등록하였습니다.`);
             });
         });
     }

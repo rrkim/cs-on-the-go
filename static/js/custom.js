@@ -1,12 +1,8 @@
-(function ($) {
-	"use strict";
-
-	if($('.menu-trigger').length){
-		$(".menu-trigger").on('click', function() {	
-			$(this).toggleClass('active');
-			$('.header-area .menu li').slideToggle(200);
-		});
-	}
+$(function() {
+	$(".menu-trigger").on('click', function() {
+		$(this).toggleClass('active');
+		$('.header-area .menu li').slideToggle(200);
+	});
 
 	$('.main-banner').slick({
 		slide: 'div',
@@ -27,5 +23,5 @@
 		let percent = $(iv).data("completePercent");
 		$(iv)[0].style.setProperty("--cs-on-the-go-runner-percent", percent);
 	});
+});
 
-})(window.jQuery);
