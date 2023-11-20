@@ -386,6 +386,40 @@ footer .page-logo .logo-img {
     height: 3rem;
 }
 
+.lecture-timetable td.timetable-lecture-data {
+    position: relative;
+}
+
+.lecture-timetable td img.warn {
+    content: url("/static/image/warn.png");
+    width: 15%;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    cursor: pointer;
+}
+
+.modal.building-move-time-modal {
+    top: calc(50% - 130px);
+    left: calc(50% - 450px);
+    width: 50%;
+}
+
+.modal.building-move-time-modal .modal-content {
+    width: auto;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.modal.building-move-time-modal table {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal.building-move-time-modal table th {
+    vertical-align: top;
+}
 
 @media (max-width: 1400px) {
     .university-progress .progress-bar .runner {

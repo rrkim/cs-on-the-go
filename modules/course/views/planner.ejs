@@ -132,6 +132,27 @@
     </div>
 </div>
 <%- include(getViewPath("/core/views/common/footer.ejs")) %>
+
+<div class="modal building-move-time-modal">
+    <div class="modal-content">
+        <h3 class="text-center">강의실간 이동 거리 계산</h3>
+
+        <div class="mt-3">
+            <table>
+                <tr>
+                    <th width="20%">수업 정보</th>
+                    <td>이전 수업: <span>수업 정보 없음</span><br>
+                        다음 수업: <span>수업 정보 없음</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>이동 시간</th>
+                    <td><span>0</span>m, [도보: <span>0</span>분]</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
 <script>
     const lectureClicked = "lecture-clicked";
     const timetableLectureData = "timetable-lecture-data";
@@ -177,7 +198,11 @@
                 {
                     "columnNm": "강의시간",
                     "columnId": "class_time_text"
-                }
+                },
+                {
+                    "columnNm": "강의실",
+                    "columnId": "class_room"
+                },
             ]
         });
 
@@ -287,6 +312,7 @@
             cell.classList.add(timetableLectureData);
             cell.innerHTML = `${courseData.course_name}<br/>${classData.professor_name}<br/>${classData.class_room}`;
             cell.dataset.courseId = courseData.course_id;
+            cell.dataset.classRoom = classData.class_room;
             cell.onclick = function() {
                 if(cell.classList.contains(lectureClicked)) {
                     cell.classList.remove(lectureClicked);
@@ -304,6 +330,64 @@
                 let nextCell = getTimeTableCell(iv);
                 nextCell.style.display = "none";
                 nextCell.dataset.courseId = courseData.course_id;
+                nextCell.dataset.originLecturePosition = timetablePosition;
+            });
+        });
+
+        getTimetableDistance();
+    }
+
+    function getTimetableDistance() {
+        for(let i=TIMETABLE_WIDTH;i<TIMETABLE_HEIGHT*TIMETABLE_WIDTH;i++) {
+            let cell = getTimeTableCell(i);
+            let position = getTimeTableRowColumnIdx(i);
+            if(cell.dataset.courseId == null || cell.dataset.originLecturePosition != null) { continue; }
+
+            let previousTimeTablePositions = getTimeTablePosition(position.rowIdx - 1, position.columnIdx);
+            let previousCell = getTimeTableCell(previousTimeTablePositions);
+            let previousOriginLecturePosition = previousCell.dataset.originLecturePosition;
+
+            if(previousOriginLecturePosition != null) {
+                previousTimeTablePositions = previousOriginLecturePosition;
+                previousCell = getTimeTableCell(previousTimeTablePositions);
+            }
+
+            if(previousCell.classList == null || !previousCell.classList.contains(timetableLectureData)) { continue; }
+
+            let previousClassRoom = previousCell.dataset.classRoom;
+            let startBuildingNumber = previousClassRoom.split("-")[0];
+            let endBuildingNumber = cell.dataset.classRoom.split("-")[0];
+            getRoadDistance(startBuildingNumber, endBuildingNumber).then(function(d) {
+                if(d == null || d.totalTime < 5) { return; }
+                console.log(d);
+
+                let img = document.createElement("img");
+                img.className = "warn";
+                img.onclick = function() {
+                    openRoadDistanceMap(startBuildingNumber, endBuildingNumber);
+                }
+                cell.appendChild(img);
+            }).catch(function(e) {
+                console.log(e);
+            });
+        }
+    }
+
+    function openRoadDistanceMap(startBuildingNumber, endBuildingNumber) {
+
+    }
+
+    function getRoadDistance(startBuildingNumber, endBuildingNumber) {
+        let params = { "startBuildingNumber": startBuildingNumber, "endBuildingNumber": endBuildingNumber };
+        let queryString = new URLSearchParams(params).toString();
+
+        return new Promise((resolve, reject) => {
+            fetch(`/course/get-building-time-api?${queryString}`, {
+                method: "GET"
+            }).then(response => response.json()).then((data) => {
+                resolve(data);
+            }).catch((e) => {
+                reject(e);
             });
         });
     }
@@ -333,9 +417,10 @@
         }
     }
 
+
+
     function saveAction() {
         if(!confirm("수강 플랜을 저장하시겠습니까?")) { return; }
-
         alert("수강 플랜이 저장되었습니다.");
     }
 
@@ -348,11 +433,11 @@
     }
 
     function getTimeTableRowColumnIdx(timetablePosition) {
-        return {rowIdx: timetablePosition / TIMETABLE_WIDTH, columnIdx: timetablePosition % TIMETABLE_WIDTH};
+        return {rowIdx: parseInt(timetablePosition / TIMETABLE_WIDTH), columnIdx: parseInt(timetablePosition % TIMETABLE_WIDTH)};
     }
 
     function getTimeTableCell(timetablePosition) {
-        return Array.from(document.getElementById("lecture-timetable").querySelectorAll("tr.timetable-data td")).filter(d => parseInt(d.dataset.timetablePosition) === timetablePosition)[0];
+        return Array.from(document.getElementById("lecture-timetable").querySelectorAll("tr.timetable-data td")).filter(d => parseInt(d.dataset.timetablePosition) === parseInt(timetablePosition))[0];
     }
 
     function convertClassTimeListToString(arr) {
