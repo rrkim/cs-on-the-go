@@ -380,6 +380,10 @@ footer .page-logo .logo-img {
 .course-timetable td {
     padding: 1.5rem;
 }
+/*교수 페이지 css*/
+.info_lst_com_wrap .professor_pic{
+    width: 10rem;
+}
 
 @media (max-width: 1400px) {
     .university-progress .progress-bar .runner {
