@@ -64,8 +64,10 @@ class ForwardGrid {
 
             __instance.tableElement.appendChild(trElement);
         });
+    }
 
-        this.selectRow(0);
+    getData() {
+        return this.data;
     }
 
     getSelectedRowNum() {
@@ -79,6 +81,8 @@ class ForwardGrid {
 
     getSelectedRowData() {
         let rowNum = this.getSelectedRowNum();
+        if(rowNum == null) { return null; }
+
         return this.data[rowNum];
     }
 

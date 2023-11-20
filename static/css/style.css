@@ -83,7 +83,6 @@
     background-color: #1e1e1e;
     display: block;
     position: absolute;
-    width: 30px;
     height: 2px;
     left: 0;
     width: 75%;
@@ -339,8 +338,6 @@ footer .page-logo .logo-img {
 }
 
 .course-search-area  {
-    display: flex;
-    justify-content: space-between;
     margin-top: 5rem;
 }
 
@@ -369,17 +366,26 @@ footer .page-logo .logo-img {
     margin-left: 1rem;
 }
 
-.course-timetable tr:nth-child(1) th:nth-child(1) {
+.lecture-timetable tr:nth-child(1) th:nth-child(1) {
     width: 5%;
 }
 
-.course-timetable tr:nth-child(n+1) th:nth-child(n+2) {
-    width: 20%;
+.lecture-timetable tr:nth-child(1) th:nth-child(n+2) {
+    width: 15%;
 }
 
-.course-timetable td {
+.lecture-timetable td {
     padding: 1.5rem;
 }
+
+.lecture-timetable td.lecture-clicked {
+    border: 2px solid black;
+}
+
+.lecture-timetable tr.timetable-data th {
+    height: 3rem;
+}
+
 
 @media (max-width: 1400px) {
     .university-progress .progress-bar .runner {
@@ -562,6 +568,23 @@ footer .page-logo .logo-img {
 
     .university-progress .title {
         width: 4rem;
+    }
+
+    .course-select-area  {
+        margin-top: 1rem;
+        display: block;
+    }
+
+    .course-select-area .data-area {
+        margin-top: 1.5rem;
+    }
+
+    .course-select-area .data-area:nth-child(1)  {
+        margin-right: 0;
+    }
+
+    .course-select-area .data-area:nth-child(2)  {
+        margin-left: 0;
     }
 }
 
