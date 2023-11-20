@@ -377,6 +377,10 @@ footer .page-logo .logo-img {
 .lecture-timetable td {
     padding: 1.5rem;
 }
+/*교수 페이지 css*/
+.info_lst_com_wrap .professor_pic{
+    width: 10rem;
+}
 
 .lecture-timetable td.lecture-clicked {
     border: 2px solid black;
