@@ -9,7 +9,7 @@
     "class_id": 1,
     "professor_name": "이수원",
     "campus_type": "가좌캠퍼스",
-    "class_time_list": ["목6", "목7"],
+    "class_time_list": ["화6", "화7"],
     "class_room": "030-0308"
   },
   {
@@ -150,7 +150,7 @@
     "course_id": 11009574,
     "course_point": 3,
     "class_id": 1,
-    "professor_name": "미정",
+    "professor_name": "김범수",
     "campus_type": "가좌캠퍼스",
     "class_time_list": ["월5", "수6", "수7"],
     "class_room": "030-0304"
@@ -163,7 +163,7 @@
     "course_id": 11009447,
     "course_point": 3,
     "class_id": 1,
-    "professor_name": "미정",
+    "professor_name": "부석준",
     "campus_type": "가좌캠퍼스",
     "class_time_list": ["수5", "금6", "금7"],
     "class_room": "030-0304"
@@ -293,9 +293,61 @@
     "course_id": 11009576,
     "course_point": 3,
     "class_id": 1,
-    "professor_name": "미정",
+    "professor_name": "부석준",
     "campus_type": "가좌캠퍼스",
     "class_time_list": ["월6", "월7", "목5"],
     "class_room": "030-0404"
+  },
+  {
+    "major": "영어영문학부",
+    "grade": "학년구분없음",
+    "course_name": "글로벌비지니스영어",
+    "course_type": "핵심교양",
+    "course_id": 11021396,
+    "course_point": 2,
+    "class_id": 1,
+    "professor_name": "로웰 샌본",
+    "campus_type": "가좌캠퍼스",
+    "class_time_list": ["월1", "월2"],
+    "class_room": "007-0405-1"
+  },
+  {
+    "major": "영어영문학부",
+    "grade": "학년구분없음",
+    "course_name": "글로벌비지니스영어",
+    "course_type": "핵심교양",
+    "course_id": 11021396,
+    "course_point": 2,
+    "class_id": 2,
+    "professor_name": "로웰 샌본",
+    "campus_type": "가좌캠퍼스",
+    "class_time_list": ["화8", "화9"],
+    "class_room": "007-0405-1"
+  },
+  {
+    "major": "영어영문학부",
+    "grade": "학년구분없음",
+    "course_name": "글로벌비지니스영어",
+    "course_type": "핵심교양",
+    "course_id": 11021396,
+    "course_point": 2,
+    "class_id": 2,
+    "professor_name": "케빈 맥가라티",
+    "campus_type": "가좌캠퍼스",
+    "class_time_list": ["수6", "수7"],
+    "class_room": "007-0405-2"
+  },
+  {
+    "major": "영어영문학부",
+    "grade": "학년구분없음",
+    "course_name": "글로벌비지니스영어",
+    "course_type": "핵심교양",
+    "course_id": 11021396,
+    "course_point": 2,
+    "class_id": 9,
+    "professor_name": "조슈아 하스브록",
+    "campus_type": "가좌캠퍼스",
+    "class_time_list": ["월8", "월9"],
+    "class_room": "007-0405-1"
   }
 ]

@@ -14,9 +14,9 @@
     <div class="mt-5 course-plan-info-area">
         <div>
             <h5 class="d-inline">수강 플랜명</h5>
-            <input type="text" class="input-text01" name="course-plan-name"/>
+            <input type="text" class="input-text01" name="course-plan-name" value="수강 플랜1"/>
         </div>
-        <input type="button" class="big-btn01" value="저장" />
+        <input type="button" class="big-btn01" value="저장" onclick="saveAction()" />
     </div>
 
     <div class="course-search-area">
@@ -25,19 +25,22 @@
             <input type="text" class="input-text01" name="course-name" placeholder="교과목명"/>
             <input type="button" class="btn01" value="검색" onclick="getCourseDataAction()"/>
         </div>
-        <input type="button" class="btn01" value="추가" />
+        <div class="text-right">
+            <input type="button" class="btn01" value="추가" onclick="addLecture()"/>
+        </div>
     </div>
     <div class="course-select-area">
         <div class="data-area" id="grid01"></div>
         <div class="data-area" id="grid02"></div>
     </div>
 
-    <div class="course-timetable-area">
-        <div class="text-right">
-            <input type="button" class="mt-3 btn01" value="삭제"/>
+    <div class="lecture-timetable-area">
+        <div class="d-flex justify-content-between align-items-end">
+            <p>* 시간표 내의 교과목을 선택하여 삭제할 수 있습니다.</p>
+            <input type="button" class="mt-3 btn01" value="삭제" onclick="removeLecture()"/>
         </div>
-        <table class="course-timetable table01 mt-3">
-            <tr>
+        <table class="lecture-timetable table01 mt-3" id="lecture-timetable">
+            <tr class="day-header">
                 <th></th>
                 <th>월</th>
                 <th>화</th>
@@ -45,36 +48,39 @@
                 <th>목</th>
                 <th>금</th>
             </tr>
-            <tr>
+            <tr class="timetable-data">
                 <th>9</th>
                 <td></td>
-                <td rowspan="2" class="background-yellow">자료구조<br>최상민<br>[30-304]</td>
-                <td rowspan="2" class="background-lightgreen">컴퓨터구조<br>김민기<br>[30-304]</td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr class="timetable-data">
                 <th>10</th>
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
+                <td></td>
             </tr>
-            <tr>
+            <tr class="timetable-data">
                 <th>11</th>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td rowspan="2" class="background-skyblue">Java프로그래밍<br>김지윤<br>[30-304]</td>
+                <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr class="timetable-data">
                 <th>12</th>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
-            <tr>
+            <tr class="timetable-data">
                 <th>13</th>
                 <td></td>
                 <td></td>
@@ -82,37 +88,39 @@
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr class="timetable-data">
                 <th>14</th>
                 <td></td>
-                <td rowspan="2" class="background-lightpurple">파이썬프로그래밍<br>이수원<br>[30-304]</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr class="timetable-data">
                 <th>15</th>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
-            <tr>
+            <tr class="timetable-data">
                 <th>16</th>
                 <td></td>
-                <td rowspan="2" class="background-red color-white">웹프로그래밍실습<br>서현<br>[30-308]</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr class="timetable-data">
                 <th>17</th>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
-            <tr>
+            <tr class="timetable-data">
                 <th>18</th>
                 <td></td>
                 <td></td>
@@ -125,6 +133,12 @@
 </div>
 <%- include(getViewPath("/core/views/common/footer.ejs")) %>
 <script>
+    const lectureClicked = "lecture-clicked";
+    const timetableLectureData = "timetable-lecture-data";
+    const TIMETABLE_WIDTH = 5;
+    const TIMETABLE_HEIGHT = 10;
+    const BACKGROUND_COLORS = ["background-yellow", "background-lightgreen", "background-skyblue", "background-lightpurple", "background-red", "background-pink", "background-orange", "background-darkmint", "background-lime"];
+
     let grid1 = new ForwardGrid();
     let grid2 = new ForwardGrid();
     $(function() {
@@ -168,6 +182,17 @@
         });
 
         getCourseDataAction();
+
+        let guideText = document.createElement("p");
+        guideText.id = "class-guide-text";
+        guideText.className = "text-center";
+        guideText.innerText = "왼쪽에서 교과목을 선택하세요";
+        document.getElementById("grid02").appendChild(guideText);
+
+        let pos = 0;
+        document.querySelectorAll("#lecture-timetable .timetable-data td").forEach((iv, i) => {
+            iv.dataset.timetablePosition = pos++;
+        });
     });
 
     function getCourseDataMain(params) {
@@ -192,6 +217,7 @@
                 iv.class_time_text = convertClassTimeListToString(iv.class_time_list);
             });
             grid2.resetData(data);
+            grid2.selectRow(0);
 
         }).catch((err) => {
             alert("분반 정보를 불러오는 중에 오류가 발생했습니다.");
@@ -200,8 +226,133 @@
     }
 
     function getClassDataAction() {
+        if(document.getElementById("class-guide-text") != null) {
+            document.getElementById("class-guide-text").remove();
+        }
+
         let courseId = grid1.getSelectedRowData().course_id;
         getClassDataMain({course_id: courseId});
+    }
+
+    function addLecture() {
+        let backgroundColor = BACKGROUND_COLORS[parseInt(Math.random() * BACKGROUND_COLORS.length)];
+        let addedTimeTablePositions = [];
+        let courseData = grid1.getSelectedRowData();
+        let classData = grid2.getSelectedRowData();
+        if(classData == null) {
+            alert("추가할 강의를 선택하세요.");
+            return;
+        }
+
+        let classTimeList = classData.class_time_list;
+        let isBreakLoop = false;
+
+        for(let i=0;i<TIMETABLE_HEIGHT*TIMETABLE_WIDTH;i++) {
+            let cell = getTimeTableCell(i);
+            if(parseInt(cell.dataset.courseId) === courseData.course_id) {
+                alert("해당 교과목이 이미 시간표에 존재합니다.");
+                return;
+            }
+        }
+
+        classTimeList.forEach((iv, i) => {
+            let continuousLecturePositions = [];
+            let columnIdx = getNumberForDay(iv.substring(0, 1));
+            let rowIdx = parseInt(iv.substring(1))-1;
+            let timetablePosition = getTimeTablePosition(rowIdx, columnIdx);
+
+            if(isBreakLoop || addedTimeTablePositions.indexOf(timetablePosition) !== -1) { return; }
+            addedTimeTablePositions.push(timetablePosition);
+            let rowSpan = 1;
+
+            for(let k=i;k<classTimeList.length;k++) {
+                let nextColumnIdx = getNumberForDay(classData.class_time_list[k].substring(0, 1));
+                let nextRowIdx = parseInt(classData.class_time_list[k].substring(1))-1;
+                let timetablePosition = getTimeTablePosition(nextRowIdx, nextColumnIdx);
+                let nextCell = getTimeTableCell(timetablePosition);
+                if(nextCell.classList.contains(timetableLectureData)) {
+                    alert("해당 시간에 이미 강의가 존재합니다.");
+                    isBreakLoop = true;
+                    return;
+                } else if(k !== i && columnIdx === nextColumnIdx) {
+                    rowSpan++;
+                    addedTimeTablePositions.push(timetablePosition);
+                    continuousLecturePositions.push(timetablePosition);
+                }
+            }
+
+            let cell = getTimeTableCell(timetablePosition);
+            cell.rowSpan = rowSpan;
+            cell.classList.add(backgroundColor);
+            cell.classList.add(timetableLectureData);
+            cell.innerHTML = `${courseData.course_name}<br/>${classData.professor_name}<br/>${classData.class_room}`;
+            cell.dataset.courseId = courseData.course_id;
+            cell.onclick = function() {
+                if(cell.classList.contains(lectureClicked)) {
+                    cell.classList.remove(lectureClicked);
+                } else {
+                    getSelectedLecture().forEach(iv => {
+                        iv.classList.remove(lectureClicked);
+                    });
+
+                    cell.classList.add(lectureClicked);
+                }
+            };
+
+            addedTimeTablePositions.forEach(iv => {
+                if(timetablePosition === iv || continuousLecturePositions.indexOf(iv) === -1) { return; }
+                let nextCell = getTimeTableCell(iv);
+                nextCell.style.display = "none";
+                nextCell.dataset.courseId = courseData.course_id;
+            });
+        });
+    }
+
+    function removeLecture() {
+        let selectedLecture = getSelectedLecture()[0];
+        if(selectedLecture == null) {
+            alert("시간표에서 삭제할 강의를 선택하세요.");
+            return;
+        }
+
+        let courseId = parseInt(selectedLecture.dataset.courseId);
+
+        if(!confirm("선택된 강의를 시간표에서 모두 삭제하시겠습니까?")) { return; }
+
+        for(let i=0;i<TIMETABLE_HEIGHT*TIMETABLE_WIDTH;i++) {
+            let cell = getTimeTableCell(i);
+            if(parseInt(cell.dataset.courseId) !== courseId) { continue; }
+
+            cell.rowSpan = 1;
+            cell.onclick = null;
+            cell.className = "";
+            cell.innerHTML = "";
+            cell.style.display = "table-cell";
+            delete cell.dataset.courseId;
+            delete cell.dataset.classId;
+        }
+    }
+
+    function saveAction() {
+        if(!confirm("수강 플랜을 저장하시겠습니까?")) { return; }
+
+        alert("수강 플랜이 저장되었습니다.");
+    }
+
+    function getSelectedLecture() {
+        return document.querySelectorAll("#lecture-timetable tr.timetable-data td.lecture-clicked");
+    }
+
+    function getTimeTablePosition(rowIdx, columnIdx) {
+        return rowIdx * TIMETABLE_WIDTH + columnIdx;
+    }
+
+    function getTimeTableRowColumnIdx(timetablePosition) {
+        return {rowIdx: timetablePosition / TIMETABLE_WIDTH, columnIdx: timetablePosition % TIMETABLE_WIDTH};
+    }
+
+    function getTimeTableCell(timetablePosition) {
+        return Array.from(document.getElementById("lecture-timetable").querySelectorAll("tr.timetable-data td")).filter(d => parseInt(d.dataset.timetablePosition) === timetablePosition)[0];
     }
 
     function convertClassTimeListToString(arr) {
@@ -230,6 +381,23 @@
         }
 
         return result;
+    }
+
+    function getNumberForDay(day) {
+        switch (day) {
+            case '월':
+                return 0;
+            case '화':
+                return 1;
+            case '수':
+                return 2;
+            case '목':
+                return 3;
+            case '금':
+                return 4;
+            default:
+                return -1;
+        }
     }
 </script>
 </body>

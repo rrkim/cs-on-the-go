@@ -11,10 +11,13 @@ router.get('/planner', function (req, res, next) {
 router.get('/get-course-data', function (req, res, next) {
     let course_name = req.query.course_name;
     let course_list = course;
-    console.log('course_list', course_list);
     if(course_name != null && course_name !== "") { course_list = course.filter(d => d.course_name.indexOf(course_name) !== -1); }
-    console.log('course_list', course_list);
-    let courseData = course_list.map(d => {
+
+    let courseData = course_list.filter((iv, i) => {
+        return (
+            course_list.findIndex(kv => iv.course_id === kv.course_id) === i
+        );
+    }).map(d => {
         return {course_id: d.course_id, course_name: d.course_name, point: d.point}
     });
     res.json(courseData);

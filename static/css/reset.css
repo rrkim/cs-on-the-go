@@ -286,11 +286,27 @@ body {
 }
 
 .background-red {
-    background: #F56868;
+    background: #fa8e8e;
 }
 
 .background-gray {
     background: #A3A3A3;
+}
+
+.background-orange {
+    background: #FFD6A5;
+}
+
+.background-pink {
+    background: #FFCBCB;
+}
+
+.background-darkmint {
+    background: #A8D1D1;
+}
+
+.background-lime {
+    background: #F1F7B5;
 }
 
 .visible {
