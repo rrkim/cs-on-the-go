@@ -313,6 +313,11 @@ body {
     display: inline !important;
 }
 
+.text-bold {
+    font-weight: bold;
+    font-size: 140%;
+}
+
 input[type="text"] {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
