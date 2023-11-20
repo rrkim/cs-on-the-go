@@ -377,10 +377,6 @@ footer .page-logo .logo-img {
 .lecture-timetable td {
     padding: 1.5rem;
 }
-/*교수 페이지 css*/
-.professor_pic{
-    width: 10rem;
-}
 
 .lecture-timetable td.lecture-clicked {
     border: 2px solid black;
@@ -390,6 +386,14 @@ footer .page-logo .logo-img {
     height: 3rem;
 }
 
+/*교수 페이지 css*/
+.professor_pic{
+    width: 10rem;
+}
+
+.professor_profile{
+    margin: 2rem;
+}
 
 @media (max-width: 1400px) {
     .university-progress .progress-bar .runner {

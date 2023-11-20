@@ -12,206 +12,272 @@
     <%- include(getViewPath("/core/views/common/header.ejs")) %>
         <div class="section">
             <div class="container">
-                    <table class="table01 professor_profile">
-                        <tr>
-                            <td rowspan="4" width="10%"><img class="professor_pic" src="static\image\NamYoungHo.png" alt="남영호 이미지">
-                            </td>
-                            <td colspan="4" class="text-bold">남영호(Nam Young Ho) 교수</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><span>+82-55-772-1386</span></td>
-                            <td colspan="2"><span><a href="mailTo:yhnam@gnu.ac.kr" class="bu_mail"
-                                        title="메일보내기">yhnam@gnu.ac.kr</a></span></td>
-                        </tr>
-                        <tr>
-                            <th>연구실</th>
-                            <td colspan="3">시스템연구실 / 30동 303호</td>
-                        </tr>
-                        <tr>
-                            <th>전공명</th>
-                            <td colspan="3">운영체제, 병렬처리</td>
-                        </tr>
+                <!--남영호 교수님-->
+                <table class="table02 professor_profile">
+                    <tr>
+                        <td colspan="4" class="professor_name"><span class="text-bold">남영호(Nam Young Ho) </span> 교수
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" width="10%"><img class="professor_pic" src="static\image\NamYoungHo.png"
+                                alt="남영호 이미지">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>전화번호</th>
+                        <td colspan="2">+82-55-772-1386</td>
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td colspan="2"><a href="mailTo:yhnam@gnu.ac.kr" class="bu_mail"
+                                title="메일보내기">yhnam@gnu.ac.kr</a></td>
+                    </tr>
+                    <tr>
+                        <th>연구실</th>
+                        <td colspan="2">시스템연구실 / 30동 303호</td>
+                    </tr>
+                    <tr>
+                        <th>전공명</th>
+                        <td colspan="2">운영체제, 병렬처리</td>
+                    </tr>
+                </table>
+                <!--서영건 교수님-->
+                <table class="table02 professor_profile">
+                    <tr>
+                        <td colspan="4" class="professor_name"><span class="text-bold">서영건(Seo Yeong Geon)</span> 교수
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" width="10%"><img class="professor_pic" src="static\image\SeoYeongGeon.png" alt="서영건 이미지">
+                        </td>
+                        <th>전화번호</th>
+                        <td colspan="2"><span>+82-55-772-1392</span></td>
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td colspan="2"><span><a href="mailTo:young@gnu.ac.kr" class="bu_mail"
+                                    title="메일보내기">young@gnu.ac.kr</a></span></td>
+                    </tr>
+                    <tr>
+                        <th>연구실</th>
+                        <td colspan="2">알고리즘연구실 / 30동 403호</td>
+                    </tr>
+                    <tr>
+                        <th>전공명</th>
+                        <td colspan="2">네트워크 및 멀티미디어</td>
+                    </tr>
+                </table>
+                <!--김민기 교수님-->
+                <table class="table02 professor_profile">
+                    <tr>
+                        <td colspan="4" class="professor_name"><span class="text-bold">김민기(Kim Min Ki)</span> 교수
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4" width="10%"><img class="professor_pic" src="static\image\KimMinKi.jpg" alt="김민기 이미지">
+                        </td>
+                        <th>전화번호</th>
+                        <td colspan="2"><span>+82-55-772-1393</span></td>
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td colspan="2"><span><a href="mailTo:mkkim@gnu.ac.kr" class="bu_mail"
+                                    title="메일보내기">mkkim@gnu.ac.kr</a></span></td>
+                    </tr>
+                    <tr>
+                        <th>연구실</th>
+                        <td colspan="3">컴퓨터비전연구실 / 30동 411호</td>
+                    </tr>
+                    <tr>
+                        <th>전공명</th>
+                        <td colspan="3">컴퓨터비전, 영상처리, 생체(신호)인식</td>
+                    </tr>
+                </table>
+                <!--이수원 교수님-->
+                <table class="table02 professor_profile">
+                    <tr>
+                        <td colspan="4" class="professor_name"><span class="text-bold">이수원(Suwon Lee)</span> 부교수
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" width="10%"><img class="professor_pic" src="static\image\SuwonLee.jpg" alt="이수원 이미지">
+                        </td>
+                        <th>전화번호</th>
+                        <td colspan="2"><span>+82-55-772-1394</span></td>                        
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td colspan="2"><span><a href="mailTo:leesuwon@gnu.ac.kr" class="bu_mail"
+                                    title="메일보내기">leesuwon@gnu.ac.kr</a></span></td>
+                    </tr>
+                    <tr>
+                        <th>연구실</th>
+                        <td colspan="3">증강지능연구실 / 30동 414호</td>
+                    </tr>
+                    <tr>
+                        <th>전공명</th>
+                        <td colspan="3">증강현실, HCI</td>
+                    </tr>
+                    <tr>
+                        <th>홈페이지</th>
+                        <td colspan="3"><a href="https://ailab.gnu.ac.kr" class="bu_link" target="_blank"
+                                title="새창으로 열립니다.">https://ailab.gnu.ac.kr</a></td>
+                    </tr>
+                </table>
+                <!--서현 교수님-->
+                <table class="table02 professor_profile">
+                    <tr>
+                        <td colspan="4" class="professor_name"><span class="text-bold">서현(Seo Hyeon)</span> 조교수
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" width="10%"><img class="professor_pic" src="static\image\SeoHyeon.jpg" alt="서현 이미지">
+                        </td>
+                        <th>전화번호</th>
+                        <td colspan="2"><span>+82-55-772-1385</span></td>
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td colspan="2"><span><a href="mailTo:hseo0612@gnu.ac.kr" class="bu_mail"
+                                    title="메일보내기">hseo0612@gnu.ac.kr</a></span></td>
+                    </tr>
+                    <tr>
+                        <th>연구실</th>
+                        <td colspan="3">뇌과학연구실 / 30동 307호</td>
+                    </tr>
+                    <tr>
+                        <th>전공명</th>
+                        <td colspan="3">뇌공학, 신경조절, 수학모델링, 시뮬레이션</td>
+                    </tr>
+                    <tr>
+                        <th>홈페이지</th>
+                        <td colspan="3"><a href="https://sites.google.com/view/gnu-brainlab/home" class="bu_link"
+                                target="_blank" title="새창으로 열립니다.">https://sites.google.com/view/gnu-brainlab/home</a>
+                        </td>
+                    </tr>
+                </table>
+                <!--최상민 교수님-->
+                <table class="table02 professor_profile">
+                    <tr>
+                        <td colspan="4" class="professor_name"><span class="text-bold">최상민(Choi Sang-Min)</span> 조교수
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" width="10%"><img class="professor_pic" src="static\image\ChoiSangMin.jpg" alt="최상민 이미지">
+                        </td>
+                        <th>전화번호</th>
+                        <td colspan="2"><span>+82-55-772-1384</span></td>
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td colspan="2"><span><a href="mailTo:jerassi@gnu.ac.kr" class="bu_mail"
+                                    title="메일보내기">jerassi@gnu.ac.kr</a></span></td>
+                    </tr>
+                    <tr>
+                        <th>연구실</th>
+                        <td colspan="3">정보과학연구실 / 30동 302호</td>
+                    </tr>
+                    <tr>
+                        <th>전공명</th>
+                        <td colspan="3">계산이론, 알고리즘, 정보과학</td>
+                    </tr>
+                    <tr>
+                        <th>홈페이지</th>
+                        <td colspan="3"><a href="https://infolab.gnu.ac.kr/" class="bu_link" target="_blank"
+                                title="새창으로 열립니다.">https://infolab.gnu.ac.kr/</a></td>
+                    </tr>
+                </table>
+                <!--김지윤 교수님-->
+                <table class="table02 professor_profile">
+                    <tr>
+                        <td colspan="4" class="professor_name"><span class="text-bold">김지윤(Jiyoon Kim)</span> 조교수
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4" width="10%"><img class="professor_pic" src="static\image\JiyoonKim.jpg" alt="김지윤 이미지">
+                        </td>
+                        <th>전화번호</th>
+                        <td colspan="2"><span>+82-55-772-1381</span></td>
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td colspan="2"><span><a href="mailTo:jykim92@gnu.ac.kr" class="bu_mail"
+                                    title="메일보내기">jykim92@gnu.ac.kr</a></span></td>
+                    </tr>
+                    <tr>
+                        <th>연구실</th>
+                        <td colspan="3">보안성분석 및 검증연구실 / 30동 402호</td>
+                    </tr>
+                    <tr>
+                        <th>전공명</th>
+                        <td colspan="3">정보보안, 정형검증</td>
+                    </tr>
+                </table>
+                <!--부석준 교수님-->
+                <table class="table02 professor_profile">
+                    <tr>
+                        <td colspan="4" class="professor_name"><span class="text-bold">부석준(Seok-Jun Buu)</span> 조교수
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" width="10%"><img class="professor_pic" src="static\image\SeokJunBuu.jpg" alt="부석준 이미지">
+                        </td>
+                        <th>전화번호</th>
+                        <td colspan="2"><span>+82-55-772-1382</span></td>
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td colspan="2"><span><a href="mailTo:sj.buu@gnu.ac.kr" class="bu_mail"
+                                    title="메일보내기">sj.buu@gnu.ac.kr</a></span></td>
+                    </tr>
+                    <tr>
+                        <th>연구실</th>
+                        <td colspan="3">인공지능시스템 및 응용연구실 / 30동 417호</td>
+                    </tr>
+                    <tr>
+                        <th>전공명</th>
+                        <td colspan="3">인공지능, 딥러닝</td>
+                    </tr>
+                    <tr>
+                        <th>홈페이지</th>
+                        <td colspan="3"><a href="https://aisalab.gnu.ac.kr/" class="bu_link" target="_blank"
+                                title="새창으로 열립니다.">https://aisalab.gnu.ac.kr/</a></td>
+                    </tr>
+                </table>
+                <!--김범수 교수님-->
+                <table class="table02 professor_profile">
+                    <tr>
+                        <td colspan="4" class="professor_name"><span class="text-bold">김범수(BEOMSU KIM)</span> 조교수
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" width="10%"><img class="professor_pic" src="static\image\BeoMSuKIM.jpg" alt="김범수 이미지">
+                        </td>
+                        <th>전화번호</th>
+                        <td colspan="2"><span>+82-55-772-1384</span></td>
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td colspan="2"><span><a href="mailTo:bbk5391@gnu.ac.kr" class="bu_mail"
+                                    title="메일보내기">bbk5391@gnu.ac.kr</a></span></td>
+                    </tr>
+                    <tr>
+                        <th>연구실</th>
+                        <td colspan="3">무선통신 및 네트워킹 연구실 / 30동 413호</td>
+                    </tr>
+                    <tr>
+                        <th>전공명</th>
+                        <td colspan="3">무선통신, 5G/6G, IoT</td>
+                    </tr>
+                    <tr>
+                        <th>홈페이지</th>
+                        <td colspan="3"><a href="https://sites.google.com/view/wcnet" class="bu_link" target="_blank"
+                                title="새창으로 열립니다.">https://sites.google.com/view/wcnet</a></td>
+                    </tr>
+                </table>
 
-                        <tr>
-                            <td rowspan="4"><img class="professor_pic" src="static\image\SeoYeongGeon.png"
-                                    alt="서영건 이미지"></td>
-                            <td colspan="4"><strong class="name">서영건(Seo Yeong Geon)</strong> 교수</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><span>+82-55-772-1392</span></td>
-                            <td colspan="2"><span><a href="mailTo:young@gnu.ac.kr" class="bu_mail"
-                                        title="메일보내기">young@gnu.ac.kr</a></span></td>
-                        </tr>
-                        <tr>
-                            <th>연구실</th>
-                            <td colspan="3">알고리즘연구실 / 30동 403호</td>
-                        </tr>
-                        <tr>
-                            <th>전공명</th>
-                            <td colspan="3">네트워크 및 멀티미디어</td>
-                        </tr>
-
-                        <tr>
-                            <td rowspan="4"><img class="professor_pic" src="static\image\KimMinKi.jpg" alt="김민기 이미지">
-                            </td>
-                            <td colspan="4"><strong class="name">김민기(Kim Min Ki)</strong> 교수</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><span>+82-55-772-1393</span></td>
-                            <td colspan="2"><span><a href="mailTo:mkkim@gnu.ac.kr" class="bu_mail"
-                                        title="메일보내기">mkkim@gnu.ac.kr</a></span></td>
-                        </tr>
-                        <tr>
-                            <th>연구실</th>
-                            <td colspan="3">컴퓨터비전연구실 / 30동 411호</td>
-                        </tr>
-                        <tr>
-                            <th>전공명</th>
-                            <td colspan="3">컴퓨터비전, 영상처리, 생체(신호)인식</td>
-                        </tr>
-
-                        <tr>
-                            <td rowspan="5"><img class="professor_pic" src="static\image\SuwonLee.jpg" alt="이수원 이미지">
-                            </td>
-                            <td colspan="4"><strong class="name">이수원(Suwon Lee)</strong> 부교수</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><span>+82-55-772-1394</span></td>
-                            <td colspan="2"><span><a href="mailTo:leesuwon@gnu.ac.kr" class="bu_mail"
-                                        title="메일보내기">leesuwon@gnu.ac.kr</a></span></td>
-                        </tr>
-                        <tr>
-                            <th>연구실</th>
-                            <td colspan="3">증강지능연구실 / 30동 414호</td>
-                        </tr>
-                        <tr>
-                            <th>전공명</th>
-                            <td colspan="3">증강현실, HCI</td>
-                        </tr>
-                        <tr>
-                            <th>홈페이지</th>
-                            <td colspan="3"><a href="https://ailab.gnu.ac.kr" class="bu_link" target="_blank"
-                                    title="새창으로 열립니다.">https://ailab.gnu.ac.kr</a></td>
-                        </tr>
-
-                        <tr>
-                            <td rowspan="5"><img class="professor_pic" src="static\image\SeoHyeon.jpg" alt="서현 이미지">
-                            </td>
-                            <td colspan="4"><strong class="name">서현(Seo Hyeon)</strong> 조교수</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><span>+82-55-772-1385</span></td>
-                            <td colspan="2"><span><a href="mailTo:hseo0612@gnu.ac.kr" class="bu_mail"
-                                        title="메일보내기">hseo0612@gnu.ac.kr</a></span></td>
-                        </tr>
-                        <tr>
-                            <th>연구실</th>
-                            <td colspan="3">뇌과학연구실 / 30동 307호</td>
-                        </tr>
-                        <tr>
-                            <th>전공명</th>
-                            <td colspan="3">뇌공학, 신경조절, 수학모델링, 시뮬레이션</td>
-                        </tr>
-                        <tr>
-                            <th>홈페이지</th>
-                            <td colspan="3"><a href="https://sites.google.com/view/gnu-brainlab/home" class="bu_link"
-                                    target="_blank"
-                                    title="새창으로 열립니다.">https://sites.google.com/view/gnu-brainlab/home</a></td>
-                        </tr>
-
-                        <tr>
-                            <td rowspan="5"><img class="professor_pic" src="static\image\ChoiSangMin.jpg" alt="최상민 이미지">
-                            </td>
-                            <td colspan="4"><strong class="name">최상민(Choi Sang-Min)</strong> 조교수</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><span>+82-55-772-1384</span></td>
-                            <td colspan="2"><span><a href="mailTo:jerassi@gnu.ac.kr" class="bu_mail"
-                                        title="메일보내기">jerassi@gnu.ac.kr</a></span></td>
-                        </tr>
-                        <tr>
-                            <th>연구실</th>
-                            <td colspan="3">정보과학연구실 / 30동 302호</td>
-                        </tr>
-                        <tr>
-                            <th>전공명</th>
-                            <td colspan="3">계산이론, 알고리즘, 정보과학</td>
-                        </tr>
-                        <tr>
-                            <th>홈페이지</th>
-                            <td colspan="3"><a href="https://infolab.gnu.ac.kr/" class="bu_link" target="_blank"
-                                    title="새창으로 열립니다.">https://infolab.gnu.ac.kr/</a></td>
-                        </tr>
-
-                        <tr>
-                            <td rowspan="4"><img class="professor_pic" src="static\image\JiyoonKim.jpg" alt="김지윤 이미지">
-                            </td>
-                            <td colspan="4"><strong class="name">김지윤(Jiyoon Kim)</strong> 조교수</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><span>+82-55-772-1381</span></td>
-                            <td colspan="2"><span><a href="mailTo:jykim92@gnu.ac.kr" class="bu_mail"
-                                        title="메일보내기">jykim92@gnu.ac.kr</a></span></td>
-                        </tr>
-                        <tr>
-                            <th>연구실</th>
-                            <td colspan="3">보안성분석 및 검증연구실 / 30동 402호</td>
-                        </tr>
-                        <tr>
-                            <th>전공명</th>
-                            <td colspan="3">정보보안, 정형검증</td>
-                        </tr>
-
-                        <tr>
-                            <td rowspan="5"><img class="professor_pic" src="static\image\SeokJunBuu.jpg" alt="부석준 이미지">
-                            </td>
-                            <td colspan="4"><strong class="name">부석준(Seok-Jun Buu)</strong> 조교수</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><span>+82-55-772-1382</span></td>
-                            <td colspan="2"><span><a href="mailTo:sj.buu@gnu.ac.kr" class="bu_mail"
-                                        title="메일보내기">sj.buu@gnu.ac.kr</a></span></td>
-                        </tr>
-                        <tr>
-                            <th>연구실</th>
-                            <td colspan="3">인공지능시스템 및 응용연구실 / 30동 417호</td>
-                        </tr>
-                        <tr>
-                            <th>전공명</th>
-                            <td colspan="3">인공지능, 딥러닝</td>
-                        </tr>
-                        <tr>
-                            <th>홈페이지</th>
-                            <td colspan="3"><a href="https://aisalab.gnu.ac.kr/" class="bu_link" target="_blank"
-                                    title="새창으로 열립니다.">https://aisalab.gnu.ac.kr/</a></td>
-                        </tr>
-
-                        <tr>
-                            <td rowspan="5"><img class="professor_pic" src="static\image\BeoMSuKIM.jpg" alt="김범수 이미지">
-                            </td>
-                            <td colspan="4"><strong class="name">김범수(BEOMSU KIM)</strong> 조교수</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><span>+82-55-772-1384</span></td>
-                            <td colspan="2"><span><a href="mailTo:jerassi@gnu.ac.kr" class="bu_mail"
-                                        title="메일보내기">jerassi@gnu.ac.krr</a></span></td>
-                        </tr>
-                        <tr>
-                            <th>연구실</th>
-                            <td colspan="3">무선통신 및 네트워킹 연구실 / 30동 413호</td>
-                        </tr>
-                        <tr>
-                            <th>전공명</th>
-                            <td colspan="3">무선통신, 5G/6G, IoT</td>
-                        </tr>
-                        <tr>
-                            <th>홈페이지</th>
-                            <td colspan="3"><a href="https://sites.google.com/view/wcnet" class="bu_link"
-                                    target="_blank" title="새창으로 열립니다.">https://sites.google.com/view/wcnet</a></td>
-                        </tr>
-                    </table>
-                </div>
             </div>
+        </div>
         </div>
         <%- include(getViewPath("/core/views/common/footer.ejs")) %>
 </body>
