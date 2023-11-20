@@ -315,6 +315,7 @@ body {
 
 .text-bold {
     font-weight: bold;
+    font-size: 140%;
 }
 
 input[type="text"] {
