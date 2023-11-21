@@ -135,21 +135,28 @@
 
 <div class="modal building-move-time-modal">
     <div class="modal-content">
-        <h3 class="text-center">강의실간 이동 거리 계산</h3>
+        <h3 class="text-center mt-4">강의실간 이동 거리 계산</h3>
 
-        <div class="mt-3">
+        <div class="mt-3 moving-content">
             <table>
                 <tr>
-                    <th width="20%">수업 정보</th>
-                    <td>이전 수업: <span>수업 정보 없음</span><br>
-                        다음 수업: <span>수업 정보 없음</span>
+                    <th>수업 정보</th>
+                    <td>이전 수업: <span id="previous-class-info">수업 정보 없음</span><br>
+                        다음 수업: <span id="next-class-info">수업 정보 없음</span>
                     </td>
                 </tr>
                 <tr>
                     <th>이동 시간</th>
-                    <td><span>0</span>m, [도보: <span>0</span>분]</td>
+                    <td><span id="building-move-distance">0</span>m, [도보: <span id="building-move-time">0</span>분]</td>
                 </tr>
             </table>
+            <div class="map-area">
+                <img id="building-moving-map-image">
+            </div>
+        </div>
+
+        <div class="text-center btn-area">
+            <input type="button" class="mt-3 btn01" value="닫기" onclick="closeRoadDistanceMap()"/>
         </div>
     </div>
 </div>
@@ -341,7 +348,10 @@
         for(let i=TIMETABLE_WIDTH;i<TIMETABLE_HEIGHT*TIMETABLE_WIDTH;i++) {
             let cell = getTimeTableCell(i);
             let position = getTimeTableRowColumnIdx(i);
-            if(cell.dataset.courseId == null || cell.dataset.originLecturePosition != null) { continue; }
+            let courseId = cell.dataset.courseId;
+            let classRoom = cell.dataset.classRoom;
+            let originLecturePosition = cell.dataset.originLecturePosition;
+            if(courseId == null || originLecturePosition != null) { continue; }
 
             let previousTimeTablePositions = getTimeTablePosition(position.rowIdx - 1, position.columnIdx);
             let previousCell = getTimeTableCell(previousTimeTablePositions);
@@ -354,17 +364,17 @@
 
             if(previousCell.classList == null || !previousCell.classList.contains(timetableLectureData)) { continue; }
 
+            let previousCourseId = previousCell.dataset.courseId;
             let previousClassRoom = previousCell.dataset.classRoom;
-            let startBuildingNumber = previousClassRoom.split("-")[0];
-            let endBuildingNumber = cell.dataset.classRoom.split("-")[0];
-            getRoadDistance(startBuildingNumber, endBuildingNumber).then(function(d) {
+            getRoadDistance(previousClassRoom, classRoom).then(function(d) {
                 if(d == null || d.totalTime < 5) { return; }
                 console.log(d);
 
                 let img = document.createElement("img");
                 img.className = "warn";
                 img.onclick = function() {
-                    openRoadDistanceMap(startBuildingNumber, endBuildingNumber);
+                    let params = {previousClassName: getCourseNameByCourseId(previousCourseId), previousClassRoom: previousClassRoom, nextClassName: getCourseNameByCourseId(courseId), nextClassRoom: classRoom};
+                    openRoadDistanceMap(params);
                 }
                 cell.appendChild(img);
             }).catch(function(e) {
@@ -373,11 +383,30 @@
         }
     }
 
-    function openRoadDistanceMap(startBuildingNumber, endBuildingNumber) {
-
+    function openRoadDistanceMap(params) {
+        getRoadDistance(params.previousClassRoom, params.nextClassRoom).then(function(d) {
+            document.getElementsByClassName("building-move-time-modal")[0].style.display = "block";
+            document.getElementById("previous-class-info").innerText = `${params.previousClassName} [${params.previousClassRoom}]`;
+            document.getElementById("next-class-info").innerText = `${params.nextClassName} [${params.nextClassRoom}]`;
+            document.getElementById("building-move-distance").innerText = d.totalDistance;
+            document.getElementById("building-move-time").innerText = d.totalTime;
+            document.getElementById("building-moving-map-image").src = `/course/get-building-moving-map?startBuildingNumber=${getBuildingNumberFromClassRoom(params.previousClassRoom)}&endBuildingNumber=${getBuildingNumberFromClassRoom(params.nextClassRoom)}`;
+        }).catch(function(e) {
+            console.log(e);
+        });
     }
 
-    function getRoadDistance(startBuildingNumber, endBuildingNumber) {
+    function closeRoadDistanceMap() {
+        document.getElementsByClassName("building-move-time-modal")[0].style.display = "none";
+    }
+
+    function getBuildingNumberFromClassRoom(classRoom) {
+        return classRoom.split("-")[0];
+    }
+
+    function getRoadDistance(startClassRoom, endClassRoom) {
+        let startBuildingNumber = getBuildingNumberFromClassRoom(startClassRoom);
+        let endBuildingNumber = getBuildingNumberFromClassRoom(endClassRoom);
         let params = { "startBuildingNumber": startBuildingNumber, "endBuildingNumber": endBuildingNumber };
         let queryString = new URLSearchParams(params).toString();
 
@@ -390,6 +419,17 @@
                 reject(e);
             });
         });
+    }
+
+    function getCourseNameByCourseId(courseId) {
+        let courseData = grid1.getData();
+        let courseName = null;
+        courseData.forEach(iv => {
+            if(iv.course_id !== parseInt(courseId)) { return; }
+            courseName = iv.course_name;
+        });
+
+        return courseName;
     }
 
     function removeLecture() {

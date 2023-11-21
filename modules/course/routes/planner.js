@@ -4,17 +4,13 @@ const router = express.Router();
 const Logger = require('../../../core/component/logger');
 const logger = new Logger().getLogger();
 const ResponseUtility = require("../../../core/utility/PageUtility");
-const {response} = require("express");
+const stream = require('stream');
 const course = JSON.parse(fs.readFileSync("modules/course/assets/course.json", "utf8"));
 const tmapApi = JSON.parse(fs.readFileSync("modules/course/assets/tmap-api.json", "utf8"));
 const buildingPosition = JSON.parse(fs.readFileSync("modules/course/assets/position.json", "utf8"));
 
 router.get('/planner', function (req, res, next) {
     ResponseUtility.renderPage(res, "modules/course/views/planner");
-});
-
-router.get('/map', function (req, res, next) {
-    ResponseUtility.renderPage(res, "modules/course/views/map");
 });
 
 router.get('/get-course-data', function (req, res, next) {
@@ -64,10 +60,42 @@ router.get('/get-building-time-api', function (req, res, next) {
         })
     }).then(response => response.json()).then((data) => {
         let resultData = data.features;
-        res.json({totalDistance: ((resultData[0].properties.totalDistance) / 1000).toFixed(1), totalTime: ((resultData[0].properties.totalTime) / 60).toFixed(0)})
+        res.json({totalDistance: (resultData[0].properties.totalDistance).toFixed(1), totalTime: ((resultData[0].properties.totalTime) / 60).toFixed(0)})
     }).catch((e) => {
         logger.error(e.message);
         res.json(null);
+    });
+});
+
+router.get('/get-building-moving-map', function (req, res, next) {
+    let startBuildingNumber = req.query.startBuildingNumber;
+    let endBuildingNumber = req.query.endBuildingNumber;
+    if(startBuildingNumber === endBuildingNumber) { res.json({totalDistance: 0, totalTime: 0}); return; }
+
+    let startPosition = getBuildingPosition(startBuildingNumber);
+    let endPosition = getBuildingPosition(endBuildingNumber);
+    let params = {
+        "appKey": tmapApi.appKey,
+        "startX" : startPosition.x,
+        "startY" : startPosition.y,
+        "endX" : endPosition.x,
+        "endY" : endPosition.y,
+        "reqCoordType": "WGS84GEO",
+        "lineColor": "red",
+        "width": 512,
+        "height": 512
+    };
+    let queryString = new URLSearchParams(params).toString();
+
+    fetch(`https://apis.openapi.sk.com/tmap/routeStaticMap?${queryString}`, {
+        method: "GET"
+    }).then(response => {
+        let readableStream = stream.Readable.from(response.body);
+        res.type(response.headers.get('content-type'));
+        readableStream.pipe(res);
+    }).catch(error => {
+        console.error(error);
+        res.send(null);
     });
 });
 
