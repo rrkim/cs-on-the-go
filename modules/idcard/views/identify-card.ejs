@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CS ON THE GO</title>
+    <%- include(getViewPath("/core/views/common/common.ejs")) %>
+    <script src="/static/js/bwip-js.js"></script>
+</head>
+<body>
+<%- include(getViewPath("/core/views/common/header.ejs")) %>
+<div class="container mt-3">
+    <h3>학생증</h3>
+    <p class="fs-3 mt-5"><span class="fw-bold">김량래</span> 님의 학생증</p>
+
+    <div class="mt-5 text-center id-card-area">
+        <div class="id-card-img-area">
+            <div class="item">
+                <img class="id-card" src="/static/image/idcard/id_card1.png">
+            </div>
+            <div class="item">
+                <img class="id-card" src="/static/image/idcard/id_card2.png">
+            </div>
+            <div class="item">
+                <img class="id-card" src="/static/image/idcard/id_card3.png">
+            </div>
+        </div>
+        <div class="student-barcode-area">
+            <canvas id="barcode"></canvas>
+        </div>
+    </div>
+</div>
+<%- include(getViewPath("/core/views/common/footer.ejs")) %>
+
+<script>
+    $(function() {
+        $('.id-card-img-area').slick({
+            slide: 'div',
+            slidesToScroll : 1,
+            arrows : true,
+            dots : true,
+            autoplay : false,
+            dotsClass : "slick-dots",
+            draggable: false,
+            centerMode: true,
+            centerPadding: '30rem',
+            cssEase: "unset"
+        });
+    });
+
+    let canvas = bwipjs.toCanvas('barcode', {
+        bcid: 'code128',
+        text: '12020010831',
+        scale: 2,
+        height: 10,
+        includetext: false,
+        textxalign: 'center'
+    });
+</script>
+</body>
+</html>

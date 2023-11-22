@@ -321,7 +321,7 @@
     "class_id": 2,
     "professor_name": "로웰 샌본",
     "campus_type": "가좌캠퍼스",
-    "class_time_list": ["화8", "화9"],
+    "class_time_list": ["수1", "수2"],
     "class_room": "007-0405-1"
   },
   {
@@ -331,7 +331,7 @@
     "course_type": "핵심교양",
     "course_id": 11021396,
     "course_point": 2,
-    "class_id": 2,
+    "class_id": 3,
     "professor_name": "케빈 맥가라티",
     "campus_type": "가좌캠퍼스",
     "class_time_list": ["수6", "수7"],
@@ -344,10 +344,10 @@
     "course_type": "핵심교양",
     "course_id": 11021396,
     "course_point": 2,
-    "class_id": 9,
+    "class_id": 4,
     "professor_name": "조슈아 하스브록",
     "campus_type": "가좌캠퍼스",
-    "class_time_list": ["월8", "월9"],
+    "class_time_list": ["목6", "목7"],
     "class_room": "007-0405-1"
   }
 ]

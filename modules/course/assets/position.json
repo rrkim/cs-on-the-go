@@ -1,0 +1,18 @@
+{
+  "buildings": [
+    {
+      "buildingNumber": "030",
+      "position": {
+        "x": 128.098484,
+        "y": 35.154494
+      }
+    },
+    {
+      "buildingNumber": "007",
+      "position": {
+        "x": 128.101944,
+        "y": 35.154611
+      }
+    }
+  ]
+}
