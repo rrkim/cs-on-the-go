@@ -446,9 +446,30 @@ footer .page-logo .logo-img {
     height: 15rem;
 }
 
+.id-card-area {
+    position: relative;
+}
+
+.id-card {
+    width: 20rem;
+    height: 32rem;
+    border-radius: 1rem;
+}
+
+.id-card-area .student-barcode-area {
+    position: absolute;
+    top: calc(10% + 15px);
+    left: calc(50% - 115px);
+    background: #ffffff;
+}
+
+.id-card-area .student-barcode-area canvas {
+    vertical-align: middle;
+}
+
 
 /*교수 페이지 css*/
-.professor_pic{
+.professor_pic {
     width: 10rem;
 }
 
