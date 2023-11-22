@@ -476,6 +476,10 @@ footer .page-logo .logo-img {
 .professor_profile{
     margin: 2rem;
 }
+.professor_profile th{
+    width: 15%;
+}
+
 
 @media (max-width: 1400px) {
     .university-progress .progress-bar .runner {
