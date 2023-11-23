@@ -10,4 +10,8 @@ router.get('/about-professor', function (req, res, next) {
     ResponseUtility.renderPage(res, "modules/main/views/about-professor");
 });
 
+router.get('/notice', function (req, res, next) {
+    ResponseUtility.renderPage(res, "modules/main/views/notice");
+});
+
 module.exports = router;
