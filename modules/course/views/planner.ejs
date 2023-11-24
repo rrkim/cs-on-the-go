@@ -367,7 +367,7 @@
             let previousCourseId = previousCell.dataset.courseId;
             let previousClassRoom = previousCell.dataset.classRoom;
             getRoadDistance(previousClassRoom, classRoom).then(function(d) {
-                if(d == null || d.totalTime < 5) { return; }
+                if(d == null || d.totalTime <= 5) { return; }
                 console.log(d);
 
                 let img = document.createElement("img");

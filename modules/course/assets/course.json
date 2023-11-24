@@ -217,7 +217,7 @@
     "class_id": 1,
     "professor_name": "최상민",
     "campus_type": "가좌캠퍼스",
-    "class_time_list": ["화", "목6", "목7"],
+    "class_time_list": ["화5", "목6", "목7"],
     "class_room": "030-0304"
   },
   {
@@ -349,5 +349,31 @@
     "campus_type": "가좌캠퍼스",
     "class_time_list": ["목6", "목7"],
     "class_room": "007-0405-1"
+  },
+  {
+    "major": "정보통계학부",
+    "grade": "학년구분없음",
+    "course_name": "기초통계학",
+    "course_type": "기초교양(자연)",
+    "course_id": 11023390,
+    "course_point": 3,
+    "class_id": 1,
+    "professor_name": "서의훈",
+    "campus_type": "가좌캠퍼스",
+    "class_time_list": ["화1", "화2", "목3"],
+    "class_room": "024-0273"
+  },
+  {
+    "major": "정보통계학부",
+    "grade": "학년구분없음",
+    "course_name": "기초통계학",
+    "course_type": "기초교양(자연)",
+    "course_id": 11023390,
+    "course_point": 3,
+    "class_id": 1,
+    "professor_name": "서의훈",
+    "campus_type": "가좌캠퍼스",
+    "class_time_list": ["화3" ,"목1", "목2"],
+    "class_room": "024-0273"
   }
 ]
