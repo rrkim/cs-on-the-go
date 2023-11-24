@@ -484,6 +484,73 @@ footer .page-logo .logo-img {
     width: 15%;
 }
 
+/*공지사항 페이지 css*/
+.notice{
+    position: relative;
+    padding: 3rem 0 2rem;
+}
+
+.notice_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notice_top {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    width: 80%;
+}
+
+.notice_top_srch {
+    margin-left: auto;
+    padding: 1rem;
+    border: 1px solid #c8d1db;
+    width: 50%;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+#listCo,
+#searchType,
+#Srchbtn {
+    width: 13%;
+}
+
+#searchValue {
+    width: 55%;
+}
+
+@media (max-width: 768px) {
+    .notice_top_srch {
+        flex-wrap: wrap;
+    }
+
+    #listCo,
+    #searchType,
+    #searchValue,
+    #Srchbtn {
+        width: 100%;
+        /*요소 사이의 간격을 조절함*/
+        margin-bottom: 0.5rem;
+        margin-left: 0.3rem;
+    }
+}
+
+.notice_list{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.notice_list table {
+    width: 100%;
+}
+
+/*건들면 안됨*/
 
 @media (max-width: 1400px) {
     .university-progress .progress-bar .runner {

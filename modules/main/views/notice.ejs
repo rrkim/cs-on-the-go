@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CS ON THE GO</title>
+    <%- include(getViewPath("/core/views/common/common.ejs")) %>
+</head>
+
+<body>
+    <%- include(getViewPath("/core/views/common/header.ejs")) %>
+        <div class="notice">
+            <div class="notice_wrap">
+                <div class="notice_top">
+                    <div class="notice_top_srch">
+                        <select name="listCo" id="listCo" title="한페이지당 게시물 갯수">
+                            <option value="10" selected="">10건</option>
+                            <option value="20">20건</option>
+                            <option value="30">30건</option>
+                            <option value="40">40건</option>
+                            <option value="50">50건</option>
+                        </select>
+
+                        <select name="searchType" id="searchType" title="검색옵션">
+                            <option value="sj">제목</option>
+                            <option value="cn">내용</option>
+                            <option value="nm">작성자</option>
+                        </select>
+
+                        <input name="searchValue" id="searchValue" title="검색단어" class="txt inpTxt" type="text" value="">
+                        <button title="검색" id="Srchbtn" onclick="javascript:searchEvent()">검색</button>
+                    </div>
+                </div>
+                <div class="notice_list">
+                    <table class="table02">
+                        <colgroup>
+                            <col style="width:10%;">
+                            <col style="width:auto;">
+                            <col style="width:15%;">
+                            <col style="width:12%;">
+                            <col style="width:10%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col" class="BD_tm_none">번호</th>
+                                <th scope="col">제목</th>
+                                <th scope="col">작성자</th>
+                                <th scope="col">등록일</th>
+                                <th scope="col">조회</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="notice_type"><b class="color-blue">학과소식</b></td>
+                                <td class="ta_l">
+                                    <a href="https://cs.gnu.ac.kr/cs/na/ntt/selectNttInfo.do?mi=6694&bbsId=2351&nttSn=2210416#none">
+                                        2023년도 2학기 연구실 안전교육 미이수자 사유서 제출
+                                    </a>
+                                </td>
+                                <td>
+                                        컴퓨터과학전공
+                                </td>
+                                <td>2023.11.23</td>
+                                <td>57</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <%- include(getViewPath("/core/views/common/footer.ejs")) %>
+</body>
+
+</html>
