@@ -162,11 +162,11 @@
     color: #d9d9d9 !important;
 }
 
-.slick-arrow:before{
+.slick-arrow:before {
     font-size: 25px;
 }
 
-.slick-prev{
+.slick-prev {
     left: 20px;
 }
 
@@ -460,7 +460,6 @@ footer .page-logo .logo-img {
     position: absolute;
     top: calc(10% + 15px);
     left: calc(50% - 115px);
-    background: #ffffff;
 }
 
 .id-card-area .student-barcode-area canvas {
@@ -473,10 +472,15 @@ footer .page-logo .logo-img {
     width: 10rem;
 }
 
-.professor_profile{
-    margin: 2rem;
+.professor_profile {
+    margin-bottom: 4rem;
 }
-.professor_profile th{
+
+.professor_profile .professor_name {
+    border-bottom: 0;
+}
+
+.professor_profile th {
     width: 15%;
 }
 
@@ -680,11 +684,19 @@ footer .page-logo .logo-img {
     .course-select-area .data-area:nth-child(2)  {
         margin-left: 0;
     }
+
+    .professor_pic {
+        width: 7rem;
+    }
 }
 
 @media (max-width: 547px) {
     .header-area .main-nav .logo {
         left: calc(50% - 330px);
         top: calc(50% - 30px);
+    }
+
+    .professor_pic {
+        width: 5rem;
     }
 }
