@@ -480,47 +480,29 @@ footer .page-logo .logo-img {
     border-bottom: 0;
 }
 
+.professor_profile .professor_name span {
+    font-size: 1.5rem;
+}
+
 .professor_profile th {
     width: 15%;
 }
 
 /*공지사항 페이지 css*/
-.notice{
-    position: relative;
-    padding: 3rem 0 2rem;
-}
-
-.notice_wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.notice_top {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-    width: 80%;
-}
 
 .notice_top_srch {
-    margin-left: auto;
+    text-align: right;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     padding: 1rem;
-    border: 1px solid #c8d1db;
-    width: 50%;
-    
-    display: flex;
-    justify-content: space-between;
 }
 
-#listCo,
-#searchType,
-#Srchbtn {
-    width: 13%;
+#searchType {
+    width: 10%;
 }
 
 #searchValue {
-    width: 55%;
+    width: 20%;
 }
 
 @media (max-width: 768px) {
@@ -537,13 +519,6 @@ footer .page-logo .logo-img {
         margin-bottom: 0.5rem;
         margin-left: 0.3rem;
     }
-}
-
-.notice_list{
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    text-align: center;
 }
 
 .notice_list table {
