@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,13 +12,13 @@
         <h3>공지사항</h3>
 
         <div class="notice_top_srch">
-            <select name="searchType" id="searchType" title="검색옵션">
-                <option value="sj">제목</option>
-                <option value="cn">내용</option>
-                <option value="nm">작성자</option>
+            <select name="searchType" class="search-type">
+                <option value="subject">제목</option>
+                <option value="content">내용</option>
+                <option value="author">작성자</option>
             </select>
 
-            <input name="searchValue" id="searchValue" title="검색단어" class="txt inpTxt" type="text" value="">
+            <input type="text" name="searchValue" class="search-value" value="">
             <input type="button" class="btn01" value="검색"/>
         </div>
 
@@ -29,22 +28,22 @@
                     <col style="width:10%;">
                     <col style="width:auto;">
                     <col style="width:15%;">
-                    <col style="width:12%;">
+                    <col style="width:10%;">
                     <col style="width:10%;">
                 </colgroup>
                 <thead>
                     <tr>
-                        <th scope="col" class="BD_tm_none">번호</th>
-                        <th scope="col">제목</th>
-                        <th scope="col">작성자</th>
-                        <th scope="col">등록일</th>
-                        <th scope="col">조회</th>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>등록일</th>
+                        <th>조회</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="notice_type"><span class="color-blue text-bold">학과소식</span></td>
-                        <td class="ta_l">
+                        <td><span class="color-blue text-bold">학과소식</span></td>
+                        <td>
                             <a href="https://cs.gnu.ac.kr/cs/na/ntt/selectNttInfo.do?mi=6694&bbsId=2351&nttSn=2210416#none">
                                 2023년도 2학기 연구실 안전교육 미이수자 사유서 제출
                             </a>
@@ -54,8 +53,8 @@
                         <td>57</td>
                     </tr>
                     <tr>
-                        <td class="notice_type"><span class="color-blue text-bold">학과소식</span></td>
-                        <td class="ta_l">
+                        <td><span class="color-blue text-bold">학과소식</span></td>
+                        <td>
                             <a href="https://www.gnu.ac.kr/cs/na/ntt/selectNttInfo.do?mi=6694&bbsId=2351&nttSn=2210478">
                                 2023 찾아가는 스타트업 커리어 토크 콘서트 홍보 협조 요청
                             </a>
@@ -65,8 +64,8 @@
                         <td>86</td>
                     </tr>
                     <tr>
-                        <td class="notice_type"><span class="color-blue text-bold">학과소식</span></td>
-                        <td class="ta_l">
+                        <td><span class="color-blue text-bold">학과소식</span></td>
+                        <td>
                             <a href="https://www.gnu.ac.kr/cs/na/ntt/selectNttInfo.do?mi=6694&bbsId=2351&nttSn=2210201">
                                 제3차 GNU-SDGs 플로깅 봉사자 모집 안내
                             </a>
@@ -76,8 +75,8 @@
                         <td>53</td>
                     </tr>
                     <tr>
-                        <td class="notice_type"><span class="color-green text-bold">학과행사</span></td>
-                        <td class="ta_l">
+                        <td><span class="color-green text-bold">학과행사</span></td>
+                        <td>
                             <a href="https://www.gnu.ac.kr/cs/na/ntt/selectNttInfo.do?mi=10305&bbsId=3222&nttSn=2207481">
                                 2023학년도 단체복 디자인 경진대회
                             </a>
@@ -87,8 +86,8 @@
                         <td>30</td>
                     </tr>
                     <tr>
-                        <td class="notice_type"><span class="color-red text-bold">기관공지</span></td>
-                        <td class="ta_l">
+                        <td><span class="color-red text-bold">기관공지</span></td>
+                        <td>
                             <a href="https://www.gnu.ac.kr/main/na/ntt/selectNttInfo.do?nttSn=2210454&mi=1126">
                                 항공•드론 분야 학생설계전공 개발 경진대회 참가자 모집
                             </a>
@@ -98,8 +97,8 @@
                         <td>42</td>
                     </tr>
                     <tr>
-                        <td class="notice_type"><span class="color-red text-bold">기관공지</span></td>
-                        <td class="ta_l">
+                        <td><span class="color-red text-bold">기관공지</span></td>
+                        <td>
                             <a href="https://www.gnu.ac.kr/main/na/ntt/selectNttInfo.do?nttSn=2210452&mi=1126">
                                 2023년도 2학기 연구실 안전교육 미이수자 사유서 제출
                             </a>
@@ -109,8 +108,8 @@
                         <td>52</td>
                     </tr>
                     <tr>
-                        <td class="notice_type"><span class="color-blue text-bold">학과소식</span></td>
-                        <td class="ta_l">
+                        <td><span class="color-blue text-bold">학과소식</span></td>
+                        <td>
                             <a href="https://www.gnu.ac.kr/cs/na/ntt/selectNttInfo.do?mi=10305&bbsId=3222&nttSn=2206669">
                                 2023학년도 「학과 Job Day」 전문가 초청 특강 3
                             </a>
@@ -120,8 +119,8 @@
                         <td>65</td>
                     </tr>
                     <tr>
-                        <td class="notice_type"><span class="color-yellow text-bold">수상소식</span></td>
-                        <td class="ta_l">
+                        <td><span class="color-yellow text-bold">수상소식</span></td>
+                        <td>
                             <a href="https://www.gnu.ac.kr/cs/na/ntt/selectNttInfo.do?mi=12277&bbsId=3777&nttSn=2207998">
                                 2023년 제3회 경남 소프트웨어 경진대회 대상 외 입상
                             </a>
@@ -131,8 +130,8 @@
                         <td>44</td>
                     </tr>
                     <tr>
-                        <td class="notice_type"><span class="color-orange text-bold">학사공지</span></td>
-                        <td class="ta_l">
+                        <td><span class="color-orange text-bold">학사공지</span></td>
+                        <td>
                             <a href="https://www.gnu.ac.kr/main/na/ntt/selectNttInfo.do?mi=1127&bbsId=1029&nttSn=2205657">
                                 (경상국립대학교) 2023학년도 동계 계절학기 교과목 개설 및 수강신청 일정 알림
                             </a>
@@ -142,8 +141,8 @@
                         <td>32</td>
                     </tr>
                     <tr>
-                        <td class="notice_type"><span class="color-blue text-bold">학과소식</span></td>
-                        <td class="ta_l">
+                        <td><span class="color-blue text-bold">학과소식</span></td>
+                        <td>
                             <a href="https://www.gnu.ac.kr/cs/na/ntt/selectNttInfo.do?mi=6694&bbsId=2351&nttSn=2209641">
                                 도서관 전자책 체험형 전시회 『E&E BOOK』 개최 알림
                             </a>

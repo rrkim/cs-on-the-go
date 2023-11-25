@@ -497,32 +497,12 @@ footer .page-logo .logo-img {
     padding: 1rem;
 }
 
-#searchType {
+.search-type {
     width: 10%;
 }
 
-#searchValue {
+.search-value {
     width: 20%;
-}
-
-@media (max-width: 768px) {
-    .notice_top_srch {
-        flex-wrap: wrap;
-    }
-
-    #listCo,
-    #searchType,
-    #searchValue,
-    #Srchbtn {
-        width: 100%;
-        /*요소 사이의 간격을 조절함*/
-        margin-bottom: 0.5rem;
-        margin-left: 0.3rem;
-    }
-}
-
-.notice_list table {
-    width: 100%;
 }
 
 /*건들면 안됨*/
