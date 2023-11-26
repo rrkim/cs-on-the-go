@@ -496,14 +496,15 @@ footer .page-logo .logo-img {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
-    width: 80%;
+    width: 60%;
 }
 
 .notice_top_srch {
     margin-left: auto;
+    margin-bottom: 0.5rem;
     padding: 1rem;
     border: 1px solid #c8d1db;
-    width: 50%;
+    width: 40%;
     
     display: flex;
     justify-content: space-between;
@@ -536,7 +537,7 @@ footer .page-logo .logo-img {
 }
 
 .notice_list{
-    width: 80%;
+    width: 60%;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -544,6 +545,31 @@ footer .page-logo .logo-img {
 
 .notice_list table {
     width: 100%;
+}
+
+.pagination {
+    margin-top: 5rem;
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination a {
+    text-decoration: none;
+    padding: 8px 12px;
+    color: #007BFF;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#active {
+    background-color: #007BFF;
+    color: #fff;
 }
 
 /*건들면 안됨*/
