@@ -239,7 +239,7 @@ footer .page-logo .logo-img {
     font-weight: bold;
 }
 
-.university-progress .progress-bar {
+.university-progress .university-progress-bar {
     margin-top: -20px;
     margin-left: 20px;
     width: 80%;
@@ -248,7 +248,7 @@ footer .page-logo .logo-img {
     display: inline-block;
 }
 
-.university-progress .progress-bar hr {
+.university-progress .university-progress-bar hr {
     border: 1px solid #DBDBDB;
     margin: 0;
     opacity: 1;
@@ -258,7 +258,7 @@ footer .page-logo .logo-img {
     width: 97%;
 }
 
-.university-progress .progress-bar .runner {
+.university-progress .university-progress-bar .runner {
     --cs-on-the-go-runner-unit: 0.6rem;
     --cs-on-the-go-runner-percent: 0;
     width: 3%;
@@ -266,18 +266,18 @@ footer .page-logo .logo-img {
     transform: translateX(calc(var(--cs-on-the-go-runner-unit) * var(--cs-on-the-go-runner-percent)));
 }
 
-.university-progress .progress-bar .marker-groups {
+.university-progress .university-progress-bar .marker-groups {
     display: flex;
     justify-content: space-between;
     width: 100%;
     margin-right: 5px;
 }
 
-.university-progress .progress-bar .group {
+.university-progress .university-progress-bar .group {
     position: relative;
 }
 
-.university-progress .progress-bar .marker {
+.university-progress .university-progress-bar .marker {
     width: 8px;
     height: 8px;
     background-color: #0088D7;
@@ -509,11 +509,11 @@ footer .page-logo .logo-img {
 /*건들면 안됨*/
 
 @media (max-width: 1400px) {
-    .university-progress .progress-bar .runner {
+    .university-progress .university-progress-bar .runner {
         --cs-on-the-go-runner-unit: 0.5rem;
     }
 
-    .university-progress .progress-bar hr {
+    .university-progress .university-progress-bar hr {
         top: 29px;
     }
 }
@@ -528,15 +528,15 @@ footer .page-logo .logo-img {
         width: 40px;
     }
 
-    .university-progress .progress-bar {
+    .university-progress .university-progress-bar {
         width: 78%;
     }
 
-    .university-progress .progress-bar hr {
+    .university-progress .university-progress-bar hr {
         top: 27px !important;
     }
 
-    .university-progress .progress-bar .runner {
+    .university-progress .university-progress-bar .runner {
         --cs-on-the-go-runner-unit: 0.4rem;
     }
 }
@@ -641,7 +641,7 @@ footer .page-logo .logo-img {
         display: none;
     }
 
-    .university-progress .progress-bar .runner {
+    .university-progress .university-progress-bar .runner {
         --cs-on-the-go-runner-unit: 0.28rem;
     }
 
@@ -683,7 +683,7 @@ footer .page-logo .logo-img {
         margin-top: 0;
     }
 
-    .university-progress .progress-bar {
+    .university-progress .university-progress-bar {
         display: none;
     }
 
