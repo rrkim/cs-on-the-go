@@ -480,10 +480,32 @@ footer .page-logo .logo-img {
     border-bottom: 0;
 }
 
+.professor_profile .professor_name span {
+    font-size: 1.5rem;
+}
+
 .professor_profile th {
     width: 15%;
 }
 
+/*공지사항 페이지 css*/
+
+.notice_top_srch {
+    text-align: right;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.search-type {
+    width: 10%;
+}
+
+.search-value {
+    width: 20%;
+}
+
+/*건들면 안됨*/
 
 @media (max-width: 1400px) {
     .university-progress .progress-bar .runner {
