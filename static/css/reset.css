@@ -79,6 +79,10 @@ img {
     overflow: hidden;
 }
 
+select {
+    border: 1px solid #A3A3A3;
+}
+
 html,
 body {
     font-family: 'Poppins', sans-serif;
@@ -199,6 +203,10 @@ body {
     color: #1e1e1e;
 }
 
+table.text-center {
+    text-align: center;
+}
+
 .table02 {
     width: 100%;
 }
@@ -255,6 +263,14 @@ body {
 
 .color-white {
     color: #ffffff !important;
+}
+
+.color-yellow {
+    color: #edc500 !important;
+}
+
+.color-orange {
+    color: #ff920f;
 }
 
 .background-gray {
@@ -315,7 +331,6 @@ body {
 
 .text-bold {
     font-weight: bold;
-    font-size: 140%;
 }
 
 input[type="text"] {
@@ -347,4 +362,28 @@ input[type="text"] {
 
 .text-right {
     text-align: right;
+}
+
+.pagination {
+    margin-top: 1.5rem;
+    text-align: center;
+    display:block;
+}
+
+.pagination a {
+    display: inline-block;
+    border: 1px solid #A3A3A3;
+    width: 2rem;
+    padding: 0.3rem 0 0.3rem 0;
+    margin: 0 0.3rem 0 0.3rem;
+}
+
+.pagination a.active {
+    border: 1px solid #1185CF;
+    background: #1185CF;
+    color: white;
+}
+
+.lh-1_8 {
+    line-height: 1.8rem;
 }

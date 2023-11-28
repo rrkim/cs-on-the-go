@@ -162,11 +162,11 @@
     color: #d9d9d9 !important;
 }
 
-.slick-arrow:before{
+.slick-arrow:before {
     font-size: 25px;
 }
 
-.slick-prev{
+.slick-prev {
     left: 20px;
 }
 
@@ -460,7 +460,6 @@ footer .page-logo .logo-img {
     position: absolute;
     top: calc(10% + 15px);
     left: calc(50% - 115px);
-    background: #ffffff;
 }
 
 .id-card-area .student-barcode-area canvas {
@@ -473,104 +472,39 @@ footer .page-logo .logo-img {
     width: 10rem;
 }
 
-.professor_profile{
-    margin: 2rem;
+.professor_profile {
+    margin-bottom: 4rem;
 }
-.professor_profile th{
+
+.professor_profile .professor_name {
+    border-bottom: 0;
+}
+
+.professor_profile .professor_name span {
+    font-size: 1.5rem;
+}
+
+.professor_profile th {
     width: 15%;
 }
 
 /*공지사항 페이지 css*/
-.notice{
-    position: relative;
-    padding: 3rem 0 2rem;
-}
-
-.notice_wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.notice_top {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-    width: 60%;
-}
 
 .notice_top_srch {
-    margin-left: auto;
-    margin-bottom: 0.5rem;
+    text-align: right;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     padding: 1rem;
-    border: 1px solid #c8d1db;
-    width: 40%;
-    
-    display: flex;
-    justify-content: space-between;
 }
 
-#listCo,
-#searchType,
-#Srchbtn {
-    width: 13%;
+.search-type {
+    width: 10%;
 }
 
-#searchValue {
-    width: 55%;
+.search-value {
+    width: 20%;
 }
 
-@media (max-width: 768px) {
-    .notice_top_srch {
-        flex-wrap: wrap;
-    }
-
-    #listCo,
-    #searchType,
-    #searchValue,
-    #Srchbtn {
-        width: 100%;
-        /*요소 사이의 간격을 조절함*/
-        margin-bottom: 0.5rem;
-        margin-left: 0.3rem;
-    }
-}
-
-.notice_list{
-    width: 60%;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-
-.notice_list table {
-    width: 100%;
-}
-
-.pagination {
-    margin-top: 5rem;
-    display: flex;
-    list-style: none;
-    padding: 0;
-}
-
-.pagination li {
-    margin: 0 5px;
-}
-
-.pagination a {
-    text-decoration: none;
-    padding: 8px 12px;
-    color: #007BFF;
-    border: 1px solid #007BFF;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#active {
-    background-color: #007BFF;
-    color: #fff;
-}
 
 /*건들면 안됨*/
 
@@ -773,11 +707,19 @@ footer .page-logo .logo-img {
     .course-select-area .data-area:nth-child(2)  {
         margin-left: 0;
     }
+
+    .professor_pic {
+        width: 7rem;
+    }
 }
 
 @media (max-width: 547px) {
     .header-area .main-nav .logo {
         left: calc(50% - 330px);
         top: calc(50% - 30px);
+    }
+
+    .professor_pic {
+        width: 5rem;
     }
 }
