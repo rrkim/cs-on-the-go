@@ -302,6 +302,14 @@ footer .page-logo .logo-img {
     display: flex;
 }
 
+.notice-data-area {
+    margin-right: 0.5rem;
+}
+
+.food-data-area {
+    margin-left: 0.5rem;
+}
+
 .notice-data-area, .food-data-area {
     width: 50%;
 }
