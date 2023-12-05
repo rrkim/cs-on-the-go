@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CS ON THE GO</title>
+    <%- include(getViewPath("/core/views/common/common.ejs")) %>
+</head>
+<body>
+    <%- include(getViewPath("/core/views/common/header.ejs")) %>
+    <div class="container mt-3">
+        <h3>열람실 현황</h3>
+
+        <table class="table04 text-center mt-5" id="clicker-room-data-table">
+            <colgroup>
+                <col style="width:auto">
+                <col style="width:10%">
+                <col style="width:10%">
+                <col style="width:20%">
+                <col style="width:10%">
+            </colgroup>
+            <tr>
+                <th>명칭</th>
+                <th>전체</th>
+                <th>잔여좌석</th>
+                <th>사용율</th>
+                <th>운영상태</th>
+            </tr>
+
+        </table>
+    </div>
+    <%- include(getViewPath("/core/views/common/footer.ejs")) %>
+    <script>
+        fetch(`/clicker/get-clicker-room-data`).then((res) => res.json()).then(data => {
+            addClickerRoomData(data);
+        }).catch((err) => {
+            alert("열람실 정보를 가져오는 중에 오류가 발생하였습니다.");
+        });
+
+        function addClickerRoomData(data) {
+            data.forEach(iv => {
+                let tr = document.createElement("tr");
+                let roomNameTd = document.createElement("td");
+                roomNameTd.className = "text-left";
+                roomNameTd.innerText = iv.roomName;
+                tr.appendChild(roomNameTd);
+
+                let totalCntTd = document.createElement("td");
+                totalCntTd.innerText = iv.totalCnt;
+                tr.appendChild(totalCntTd);
+
+                let currentRemainCntTd = document.createElement("td");
+                currentRemainCntTd.innerText = iv.currentRemainCnt;
+                tr.appendChild(currentRemainCntTd);
+
+                let currentUsedPercentTd = document.createElement("td");
+                let progressDiv = document.createElement("div");
+                let progressBarDiv = document.createElement("div");
+
+                progressDiv.className="progress";
+                progressBarDiv.className="progress-bar";
+                progressBarDiv.setAttribute("role", "progressbar");
+                progressBarDiv.setAttribute("aria-valuenow", iv.currentUsedPercent);
+                progressBarDiv.setAttribute("aria-valuemin", "0");
+                progressBarDiv.setAttribute("aria-valuemax", "100");
+                progressBarDiv.style.width = `${iv.currentUsedPercent}%`;
+                progressBarDiv.innerText = `${iv.currentUsedPercent}%`;
+
+                progressDiv.appendChild(progressBarDiv);
+                currentUsedPercentTd.appendChild(progressDiv);
+                tr.appendChild(currentUsedPercentTd);
+
+                let statusTd = document.createElement("td");
+                statusTd.innerText = "운영중";
+                tr.appendChild(statusTd);
+                document.getElementById("clicker-room-data-table").appendChild(tr);
+            });
+        }
+    </script>
+</body>
+</html>

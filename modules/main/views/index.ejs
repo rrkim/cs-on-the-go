@@ -29,7 +29,7 @@
                 <div class="card-body">
                     <div class="university-progress">
                         <span class="title">전체 현황</span>
-                        <div class="progress-bar">
+                        <div class="university-progress-bar">
                             <img class="runner" src="/static/image/runner.png" data-complete-percent="33">
                             <div class="line">
                                 <div class="marker-groups">
@@ -61,7 +61,7 @@
                     </div>
                     <div class="university-progress">
                         <span class="title">전공 현황</span>
-                        <div class="progress-bar">
+                        <div class="university-progress-bar">
                             <img class="runner" src="/static/image/runner.png" data-complete-percent="40">
                             <div class="line">
                                 <div class="marker-groups">
@@ -93,7 +93,7 @@
                     </div>
                     <div class="university-progress">
                         <span class="title">교양 현황</span>
-                        <div class="progress-bar">
+                        <div class="university-progress-bar">
                             <img class="runner" src="/static/image/runner.png" data-complete-percent="44">
                             <div class="line">
                                 <div class="marker-groups">
@@ -127,7 +127,7 @@
             </div>
 
             <div class="mt-5 index-data-area">
-                <div class="m-lg-3 notice-data-area">
+                <div class="notice-data-area">
                     <div class="d-flex justify-content-center position-relative">
                         <p class="fs-3"><span class="fw-bold">컴퓨터과학과 공지사항</span></p>
                         <a href="/notice" class="position-right-1">더보기</a>
@@ -175,7 +175,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="m-lg-3 food-data-area">
+                <div class="food-data-area">
                     <div class="d-flex justify-content-center position-relative">
                         <p class="fs-3"><span class="fw-bold">식단표</span></p>
                         <a href="#" class="position-right-1">더보기</a>
@@ -234,7 +234,7 @@
             draggable : true
         });
 
-        $(".university-progress .progress-bar .runner").each(function(i, iv) {
+        $(".university-progress .university-progress-bar .runner").each(function(i, iv) {
             let percent = $(iv).data("completePercent");
             $(iv)[0].style.setProperty("--cs-on-the-go-runner-percent", percent);
         });

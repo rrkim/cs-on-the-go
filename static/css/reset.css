@@ -188,10 +188,10 @@ body {
 }
 
 .table01 th {
-    background: #D9D9D9;
-    color: #222222;
+    background: #eeeeee;
     text-align: center;
-    font-weight: 600;
+    font-weight: 700;
+    border-top: 1px solid rgba(0, 0, 0, 0.175);
 }
 
 .table01 td, .table01 th {
@@ -212,6 +212,22 @@ table.text-center {
 }
 
 .table02 td, .table02 th {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.175);
+    padding: 0.25rem;
+}
+
+.table04 {
+    width: 100%;
+    line-height: 2rem;
+}
+
+.table04 th {
+    border-top: 1px solid rgba(0, 0, 0, 0.175);
+    background: #eeeeee;
+    text-align: center;
+}
+
+.table04 td, .table04 th {
     border-bottom: 1px solid rgba(0, 0, 0, 0.175);
     padding: 0.25rem;
 }
@@ -358,6 +374,10 @@ input[type="text"] {
     font-weight: bold;
     padding: 0.5rem 1.8rem 0.5rem 1.8rem;
     border-radius: 0.5rem;
+}
+
+.text-left {
+    text-align: left;
 }
 
 .text-right {
