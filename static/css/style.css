@@ -410,11 +410,11 @@ footer .page-logo .logo-img {
 .modal.building-move-time-modal {
     top: calc(50% - 290px);
     left: calc(50% - 450px);
-    width: 50%;
+    width: 80%;
 }
 
 .modal.building-move-time-modal .modal-content {
-    width: auto;
+    width: 55rem;
     position: relative;
     height: 30rem;
     margin: 1rem;

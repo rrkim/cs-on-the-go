@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const Logger = require('./core/component/logger');
 const logger = new Logger().getLogger();
-const Web = require('./core/component/www');
+const WebApplication = require('./core/component/www');
 const StringUtility = require("./core/utility/StringUtility");
 
 const confPath = "./core/conf";
@@ -18,5 +18,5 @@ confFiles.forEach(function(kv, k) {
 });
 
 const port = $_FORWARD.configuration.default.port;
-const web = new Web(port);
-web.listen();
+const webApplication = new WebApplication(port);
+webApplication.listen();

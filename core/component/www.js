@@ -9,7 +9,7 @@ const Logger = require('./logger');
 const StringUtility = require("../utility/StringUtility");
 const logger = new Logger().getLogger();
 
-class Web {
+class WebApplication {
     constructor(port) {
         this.port = port;
         this.app = express();
@@ -80,4 +80,4 @@ class Web {
     }
 }
 
-module.exports = Web;
+module.exports = WebApplication;

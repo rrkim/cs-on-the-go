@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const cheerio = require('cheerio');
-const clickerDummyJson = require('../assets/clicker.json');
 const ResponseUtility = require("../../../core/utility/PageUtility");
 
 router.get('/', function (req, res, next) {
@@ -27,11 +26,13 @@ router.get('/get-clicker-room-data', function (req, res) {
             });
 
             res.json(data);
-        } catch {
-            res.json(clickerDummyJson);
+        } catch(e) {
+            console.log(e);
+            res.json(null);
         }
     }).catch(e => {
-        res.json(clickerDummyJson);
+        console.log(e);
+        res.json(null);
     });
 });
 
