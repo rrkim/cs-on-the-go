@@ -261,6 +261,24 @@ table.text-center {
     background: #b9daf9;
 }
 
+.table05 {
+    width: 100%;
+    line-height: 2rem;
+    border-top: 5px solid #1185CF;
+}
+
+.table05 th {
+    border: 1px solid rgba(0, 0, 0, 0.175);
+    background: #eeeeee;
+    text-align: center;
+}
+
+.table05 td, .table05 th {
+    border: 1px solid rgba(0, 0, 0, 0.175);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.175);
+    padding: 0.25rem;
+}
+
 .color-green {
     color: #50A21E;
 }
@@ -406,4 +424,12 @@ input[type="text"] {
 
 .lh-1_8 {
     line-height: 1.8rem;
+}
+
+.ml-0_5{
+    margin-left: 0.5rem;
+}
+
+.food-data-area .active {
+    color: #1185CF;
 }
