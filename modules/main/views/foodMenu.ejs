@@ -11,19 +11,20 @@
             .education_menu {
                 display: none;
             }
+
+            table {
+                min-height: 700px;
+            }
         </style>
 </head>
-
 <body>
     <%- include(getViewPath("/core/views/common/header.ejs")) %>
-        <div class="container">
+        <div class="container mt-3">
             <h3>식단표</h3>
-            <div class="mt-4 food-data-area">
-                <h6 id="central" class="active color-gray d-inline " onclick="changeMenu('central')">중앙식당
-                </h6></a>
-                <h6 id="education" class="color-gray ml-0_5 d-inline" onclick="changeMenu('education')">
-                    교육문화센터 식당</h6></a>
-                <h6 id="aram" class="color-gray ml-0_5 d-inline" onclick="changeMenu('aram')">아람관</h6></a>
+            <div class="mt-4 food-restaurant">
+                <h6 id="central" class="active color-gray cursor-pointer d-inline " onclick="changeMenu('central')">중앙식당</h6>
+                <h6 id="education" class="color-gray ml-0_5 cursor-pointer d-inline" onclick="changeMenu('education')">교육문화센터 식당</h6>
+                <h6 id="aram" class="color-gray ml-0_5 cursor-pointer d-inline" onclick="changeMenu('aram')">아람관</h6>
             </div>
             <table class="table05 mt-3 text-center">
                 <colgroup>
@@ -46,7 +47,7 @@
                 </thead>
                 <tbody>
                     <tr class="central_menu">
-                        <th>천원의 아침<br>08:00 ~ 09:00<br><br>조식<br>09:00 ~</th>
+                        <th>조식</th>
                         <td>
                             [천원의 아침]<br>
                             온도토리묵국<br>돈육강정<br>딸기우유<br>
@@ -80,7 +81,7 @@
                         </td>
                     </tr>
                     <tr class="central_menu">
-                        <th>1식당 중식<br>11:00 ~ 14:30</th>
+                        <th>중식</th>
                         <td>
                             뚝배기스팸햄부대찌개<br>
                             통안심돈까스<br>
@@ -117,7 +118,7 @@
                         </td>
                     </tr>
                     <tr class="central_menu">
-                        <th>1식당 석식<br>17:00 ~ 18:30</th>
+                        <th>석식</th>
                         <td>치킨마요비빔밥</td>
                         <td>
                             차돌된장찌개
@@ -137,7 +138,15 @@
                     </tr>
 
                     <tr class="education_menu">
-                        <th>점심<br>11:00 ~ 14:00</th>
+                        <th>조식</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="education_menu">
+                        <th>중식</th>
                         <td>
                             [양식]<br>
                             치즈인치킨까스<br>
@@ -169,9 +178,17 @@
                             불닭생채비빔밥
                         </td>
                     </tr>
+                    <tr class="education_menu">
+                        <th>석식</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
 
                     <tr class="aram_menu">
-                        <th>아침</th>
+                        <th>조식</th>
                         <td>
                             [A코스 / 한식]<br>쌀밥/누룽지<br>콩비지찌개<br>불맛산적조림<br>꼬시래기두부무침<br>무생채<br>배추김치<br>모듬음료<br><br>
                             [B코스 / 베이커리]<br>미니찐빵<br>새알단팥죽<br>오징어링튀김<br>샐러드*포도D<br>모듬음료<br><br>
@@ -204,7 +221,7 @@
                         </td>
                     </tr>
                     <tr class="aram_menu">
-                        <th>점심</th>
+                        <th>중식</th>
                         <td>
                             [A코스 / 한식]<br>
                             쌀밥<br>
@@ -282,7 +299,7 @@
                         </td>
                     </tr>
                     <tr class="aram_menu">
-                        <th>저녁</th>
+                        <th>석식</th>
                         <td>
                             [A코스 / 한식]<br>
                             쌀밥<br>
@@ -340,9 +357,6 @@
 </body>
 <script>
     function changeMenu(elementId) {
-        // 선택된 element
-        let selectedElement = document.getElementById(elementId);
-
         document.getElementById("central").classList.remove("active");
         document.getElementById("education").classList.remove("active");
         document.getElementById("aram").classList.remove("active");

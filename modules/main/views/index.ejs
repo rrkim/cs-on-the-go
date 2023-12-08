@@ -189,11 +189,9 @@
                         <div class="card index-info-card mt-3">
                             <div class="card-body">
                                 <div>
-                                    <h6 id="central" class="color-blue d-inline" onclick="changeMenu('central')">중앙식당
-                                    </h6></a>
-                                    <h6 id="education" class="color-gray d-inline" onclick="changeMenu('education')">
-                                        교육문화센터 식당</h6></a>
-                                    <h6 id="aram" class="color-gray d-inline" onclick="changeMenu('aram')">아람관</h6></a>
+                                    <h6 id="central" class="active color-gray cursor-pointer d-inline" onclick="changeMenu('central')">중앙식당</h6>
+                                    <h6 id="education" class="color-gray cursor-pointer d-inline" onclick="changeMenu('education')">교육문화센터 식당</h6>
+                                    <h6 id="aram" class="color-gray cursor-pointer d-inline" onclick="changeMenu('aram')">아람관</h6>
                                 </div>
                                 <table class="table01 mt-3 ">
                                     <tr>
@@ -245,102 +243,35 @@
         });
     });
 
+    const newMealData = {
+        central: [
+            "[천원의 아침밥]<br>새우완탕<br>[조식]<br>라면/김밥",
+            "갈비김치찜<br>생협치즈돈까스<br>(세트메뉴)<br>소불고기보쌈정식",
+            "불닭치즈돌솥비빔밥"
+        ],
+        education: [
+            "정보 없음",
+            "[양식]<br>고구마치즈돈까스<br>[비빔밥]<br>불닭생채비빔밥",
+            "정보 없음"
+        ],
+        aram: [
+            "[한식]<br>쌀밥/누룽지<br>감자맑은국<br>두부스틱강정...",
+            "[한식]<br>쌀밥<br>두부김치찌개<br>떡갈비조림...",
+            "[한식]<br>쌀밥<br>닭개장<br>메밀전병..."
+        ],
+    };
+
     function changeMenu(elementId) {
-        // 선택된 element
-        let selectedElement = document.getElementById(elementId);
+        document.getElementById("central").classList.remove("active");
+        document.getElementById("education").classList.remove("active");
+        document.getElementById("aram").classList.remove("active");
 
-        // ID 값에 따라서 다른 두 요소들의 ID 값 설정
-        let otherElementId1, otherElementId2;
-        switch (elementId) {
-            case 'central':
-                otherElementId1 = 'education';
-                otherElementId2 = 'aram';
-                break;
-            case 'education':
-                otherElementId1 = 'central';
-                otherElementId2 = 'aram';
-                break;
-            case 'aram':
-                otherElementId1 = 'central';
-                otherElementId2 = 'education';
-                break;
-            default:
-                console.error("올바르지 않은 ID입니다.");
-                return;
-        }
+        document.getElementById(elementId).classList.add("active");
 
-        // 선택된 element의 클래스 변경
-        if (selectedElement.classList.contains("color-gray")) {
-            // 클래스 변경
-            selectedElement.classList.add("color-blue");    // 클래스 'color-blue' 추가
-            selectedElement.classList.remove("color-gray"); // 클래스 'color-gray' 삭제
-        } else if (selectedElement.classList.contains("color-blue")) {
-            // 이미 'color-blue'를 가지고 있다면 변경 없음
-        } else {
-            console.error("해당 ID를 가진 요소를 찾을 수 없습니다.");
-            return;
-        }
-
-        // 다른 두 element의 클래스 변경
-        let otherElement1 = document.getElementById(otherElementId1);
-        let otherElement2 = document.getElementById(otherElementId2);
-
-        if (otherElement1 && otherElement2) {
-            // 클래스 변경
-            otherElement1.classList.remove("color-blue");
-            otherElement1.classList.add("color-gray");
-            otherElement2.classList.remove("color-blue");
-            otherElement2.classList.add("color-gray");
-        } else {
-            console.error("다른 ID를 가진 요소를 찾을 수 없습니다.");
-        }
-
-        // 가상의 데이터로 대체 (변경할 식단 데이터)
-        const newMealData = {
-            central: {
-                breakfast: "[천원의 아침밥]<br>새우완탕<br>[조식]<br>라면/김밥",
-                lunch: "갈비김치찜<br>생협치즈돈까스<br>(세트메뉴)<br>소불고기보쌈정식",
-                dinner: "불닭치즈돌솥비빔밥",
-            },
-            education: {
-                breakfast: "정보 없음",
-                lunch: "[양식]<br>고구마치즈돈까스<br>[비빔밥]<br>불닭생채비빔밥",
-                dinner: "정보 없음",
-            },
-            aram: {
-                breakfast: "[한식]<br>쌀밥/누룽지<br>감자맑은국<br>두부스틱강정...",
-                lunch: "[한식]<br>쌀밥<br>두부김치찌개<br>떡갈비조림...",
-                dinner: "[한식]<br>쌀밥<br>닭개장<br>메밀전병...",
-            },
-        };
-
-        // meal 테이블의 tr 요소 찾기
-        const mealRow = document.getElementById("meal");
-
-        // tr 요소가 존재하는 경우에만 내용 변경
-        if (mealRow) {
-            // 기존 내용 삭제
-            mealRow.innerHTML = "";
-
-            // 새로운 데이터로 td 요소 추가
-            const mealTypeData = newMealData[elementId];
-            for (const mealType in mealTypeData) {
-                if (mealTypeData.hasOwnProperty(mealType)) {
-                    const mealCell = document.createElement("td");
-                    mealCell.className = "text-center";
-                    mealCell.innerHTML = mealTypeData[mealType];
-                    mealRow.appendChild(mealCell);
-
-                    // 마지막 식사 이후에는 개행을 추가하지 않음
-                    if (mealType !== "dinner") {
-                        const br = document.createElement("br");
-                        mealCell.appendChild(br);
-                    }
-                }
-            }
-        } else {
-            console.error("해당 ID를 가진 요소를 찾을 수 없습니다.");
-        }
+        const mealTableData = document.getElementById("meal").querySelectorAll("td");
+        mealTableData.forEach((iv, i) => {
+            iv.innerHTML = newMealData[elementId][i];
+        });
     }
 
 </script>
