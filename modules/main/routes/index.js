@@ -14,4 +14,8 @@ router.get('/notice', function (req, res, next) {
     ResponseUtility.renderPage(res, "modules/main/views/notice");
 });
 
+router.get('/foodMenu', function (req, res, next) {
+    ResponseUtility.renderPage(res, "modules/main/views/foodMenu");
+});
+
 module.exports = router;
