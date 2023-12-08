@@ -313,6 +313,10 @@ footer .page-logo .logo-img {
     justify-content: space-between;
 }
 
+.food-restaurant .active, .food-data-area .active {
+    color: #1185CF;
+}
+
 .course-plan-info-area {
     display: flex;
     justify-content: space-between;

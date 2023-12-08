@@ -330,10 +330,10 @@ input[type="text"] {
     line-height: 1.8rem;
 }
 
-.ml-0_5{
+.ml-0_5 {
     margin-left: 0.5rem;
 }
 
-.food-data-area .active {
-    color: #1185CF;
+.cursor-pointer {
+    cursor: pointer;
 }
