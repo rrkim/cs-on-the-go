@@ -114,29 +114,6 @@
     top: 10px;
 }
 
-.header-area .main-nav .menu-trigger.active span,
-.header-area .main-nav .menu-trigger.active span:before,
-.header-area .main-nav .menu-trigger.active span:after {
-    background-color: transparent;
-    width: 100%;
-}
-
-.header-area .main-nav .menu-trigger.active span:before {
-    -moz-transform: translateY(6px) translateX(1px) rotate(45deg);
-    -ms-transform: translateY(6px) translateX(1px) rotate(45deg);
-    -webkit-transform: translateY(6px) translateX(1px) rotate(45deg);
-    transform: translateY(6px) translateX(1px) rotate(45deg);
-    background-color: #1e1e1e;
-}
-
-.header-area .main-nav .menu-trigger.active span:after {
-    -moz-transform: translateY(-6px) translateX(1px) rotate(-45deg);
-    -ms-transform: translateY(-6px) translateX(1px) rotate(-45deg);
-    -webkit-transform: translateY(-6px) translateX(1px) rotate(-45deg);
-    transform: translateY(-6px) translateX(1px) rotate(-45deg);
-    background-color: #1e1e1e;
-}
-
 .main-banner .item {
     background-position: center center;
     background-repeat: no-repeat;
@@ -154,7 +131,7 @@
     text-align: center;
 }
 
-.slick-arrow{
+.slick-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -185,10 +162,6 @@
     line-height: 72px;
     width: 100%;
     margin-bottom: 0px;
-}
-
-footer.footer-no-gap {
-    margin-top: 0px;
 }
 
 footer {
@@ -530,6 +503,7 @@ footer .page-logo .logo-img {
     .header-area .main-nav .menu li {
         padding-left: 5px;
         padding-right: 5px;
+        display: inline-block;
     }
 
     .university-progress .title {
@@ -645,10 +619,6 @@ footer .page-logo .logo-img {
 }
 
 @media (max-width: 992px) {
-    .sub-header {
-        display: none;
-    }
-
     .university-progress .university-progress-bar .runner {
         --cs-on-the-go-runner-unit: 0.28rem;
     }
